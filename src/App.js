@@ -1,5 +1,6 @@
 // Imports
 import React, { useEffect, useState } from 'react';
+import Landing from './component/Landing';
 // import NewForm from './components/NewForm';
 
 // Configuration
@@ -38,12 +39,7 @@ const App = () => {
   // Render
   return (
     <div>
-      <h1>Sample H1</h1>
-      <ul>
-        {data.map((datum) => (
-          <li key={datum._id}>{datum._id}</li>
-        ))}
-      </ul>
+      <Landing />
     </div>
   );
 };
