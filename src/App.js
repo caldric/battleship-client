@@ -5,6 +5,7 @@ import Nav from './component/Nav';
 import Footer from './component/Footer';
 import Profile from './component/Profile';
 import Landing from './component/Landing';
+import Game from './component/Game';
 
 // Configuration
 const API = {
@@ -46,6 +47,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/game" component={Game} />
       </Switch>
       <Footer />
     </div>
