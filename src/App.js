@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Landing from './component/Landing';
 import Nav from './component/Nav';
+import Footer from './component/Footer';
 
 // Configuration
 const API = {
@@ -44,6 +45,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Landing} />
       </Switch>
+      <Footer />
     </div>
   );
 };
