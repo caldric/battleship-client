@@ -1,7 +1,7 @@
 // Imports
 import React, { useEffect, useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Landing from './component/Landing';
-// import NewForm from './components/NewForm';
 
 // Configuration
 const API = {
@@ -39,7 +39,9 @@ const App = () => {
   // Render
   return (
     <div>
-      <Landing />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+      </Switch>
     </div>
   );
 };
