@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Board = () => {
+  const clickHandler = (event) => {
+    console.log(event.currentTarget.id);
+  };
+
   const generateBoard = () => {
     const squares = [];
     const numSquares = 11;
@@ -18,7 +22,16 @@ const Board = () => {
           if (col === 0) {
             squares.push(<div className="square">{row}</div>);
           } else {
-            squares.push(<div className="square">sq</div>);
+            const currentColumn = String.fromCharCode(64 + col);
+            squares.push(
+              <div
+                className="square"
+                id={`${currentColumn}${row}`}
+                onClick={clickHandler}
+              >
+                sq
+              </div>
+            );
           }
         }
       }
