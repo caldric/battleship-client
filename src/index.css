@@ -1,6 +1,6 @@
 /* CSS vars */
 :root {
-  --square-side: 50vw;
+  --square-side: 70vw;
 }
 
 body {
@@ -19,8 +19,8 @@ code {
 
 .board {
   display: grid;
-  grid-template-rows: repeat(10, 1fr);
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  grid-template-columns: repeat(11, 1fr);
   width: var(--square-side);
   height: var(--square-side);
   margin: auto;
