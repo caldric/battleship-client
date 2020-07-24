@@ -13,7 +13,7 @@ import Error from './component/Error';
 const API = {
   local: 'http://localhost:8080',
   deployment: 'https://gentle-temple-22561.herokuapp.com',
-  index: 'index',
+  index: 'battleship',
 };
 const baseURL =
   process.env && process.env.NODE_ENV === 'development'
@@ -25,22 +25,22 @@ const App = () => {
   // State Hook: [stateVariable, stateVariableSetter] = useState(initialState);
   const [data, setData] = useState([]);
 
-  // Fetch API data function
-  const getData = async () => {
-    // Send GET request to API
-    const url = `${baseURL}/${API.index}`;
-    const response = await fetch(url);
-    const data = await response.json();
+  // // Fetch API data function
+  // const getData = async () => {
+  //   // Send GET request to API
+  //   const url = `${baseURL}/${API.index}`;
+  //   const response = await fetch(url);
+  //   const data = await response.json();
 
-    // Set state
-    setData(data);
-  };
+  //   // Set state
+  //   setData(data);
+  // };
 
-  // UseEffect Hook: call getData() on mount
-  useEffect(() => {
-    console.log('Triggered!');
-    getData();
-  }, []);
+  // // UseEffect Hook: call getData() on mount
+  // useEffect(() => {
+  //   console.log('Triggered!');
+  //   getData();
+  // }, []);
 
   // Render
   return (
