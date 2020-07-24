@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-const Login = ({ apiBaseURL, setSessionUser }) => {
+const Login = ({ apiBaseURL }) => {
   // State Hooks
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -22,9 +22,9 @@ const Login = ({ apiBaseURL, setSessionUser }) => {
     };
     const response = await fetch(url, config);
 
-    // Store user in app state
+    // Store user in session storage
     const user = await response.json();
-    setSessionUser(user);
+    sessionStorage.setItem('user', JSON.stringify(user));
 
     // Change redirect state to true in order to trigger redirect
     setRedirect(true);

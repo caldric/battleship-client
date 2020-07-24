@@ -27,7 +27,6 @@ const baseURL =
 const App = () => {
   // State Hook: [stateVariable, stateVariableSetter] = useState(initialState);
   const [data, setData] = useState([]);
-  const [sessionUser, setSessionUser] = useState('');
 
   // // Fetch API data function
   // const getData = async () => {
@@ -40,11 +39,12 @@ const App = () => {
   //   setData(data);
   // };
 
-  // // UseEffect Hook: call getData() on mount
-  // useEffect(() => {
-  //   console.log('Triggered!');
-  //   getData();
-  // }, []);
+  // UseEffect Hook: call getData() on mount
+  useEffect(() => {
+    console.log('Triggered!');
+    console.log('Session user: ', JSON.parse(sessionStorage.getItem('user')));
+    // getData();
+  }, []);
 
   // Render
   return (
@@ -60,9 +60,7 @@ const App = () => {
         <Route
           exact
           path="/login"
-          render={() => (
-            <Login apiBaseURL={baseURL} setSessionUser={setSessionUser} />
-          )}
+          render={() => <Login apiBaseURL={baseURL} />}
         />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/game" component={Game} />
