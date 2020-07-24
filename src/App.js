@@ -6,6 +6,7 @@ import Footer from './component/Footer';
 import Profile from './component/Profile';
 import Landing from './component/Landing';
 import Signup from './component/Signup';
+import Login from './component/Login';
 import Game from './component/Game';
 import Error from './component/Error';
 
@@ -52,6 +53,11 @@ const App = () => {
           exact
           path="/signup"
           render={() => <Signup apiBaseURL={baseURL} />}
+        />
+        <Route
+          exact
+          path="/login"
+          render={() => <Login apiBaseURL={baseURL} />}
         />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/game" component={Game} />
