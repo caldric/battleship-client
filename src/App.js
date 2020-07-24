@@ -48,7 +48,11 @@ const App = () => {
       <Nav />
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route exact path="/signup" component={Signup} />
+        <Route
+          exact
+          path="/signup"
+          render={() => <Signup apiBaseURL={baseURL} />}
+        />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/game" component={Game} />
         <Route component={Error} />
