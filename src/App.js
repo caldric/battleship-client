@@ -1,6 +1,8 @@
 // Imports
+// React
 import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+// Components
 import Nav from './component/Nav';
 import Footer from './component/Footer';
 import Profile from './component/Profile';
@@ -37,11 +39,12 @@ const App = () => {
   //   setData(data);
   // };
 
-  // // UseEffect Hook: call getData() on mount
-  // useEffect(() => {
-  //   console.log('Triggered!');
-  //   getData();
-  // }, []);
+  // UseEffect Hook: call getData() on mount
+  useEffect(() => {
+    console.log('Triggered!');
+    console.log('Session user: ', JSON.parse(sessionStorage.getItem('user')));
+    // getData();
+  }, []);
 
   // Render
   return (
