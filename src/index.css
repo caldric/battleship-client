@@ -1,6 +1,6 @@
 /* CSS vars */
 :root {
-  --square-side: 70vw;
+  --square-side: 30vw;
 }
 
 body {
@@ -23,7 +23,7 @@ code {
   grid-template-columns: repeat(11, 1fr);
   width: var(--square-side);
   height: var(--square-side);
-  margin: auto;
+  margin: 40px auto;
 }
 
 .square {
