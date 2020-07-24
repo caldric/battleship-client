@@ -1,6 +1,8 @@
 // Imports
+// React
 import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+// Components
 import Nav from './component/Nav';
 import Footer from './component/Footer';
 import Profile from './component/Profile';
