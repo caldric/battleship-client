@@ -27,6 +27,7 @@ const baseURL =
 const App = () => {
   // State Hook: [stateVariable, stateVariableSetter] = useState(initialState);
   const [data, setData] = useState([]);
+  const [sessionUser, setSessionUser] = useState('');
 
   // // Fetch API data function
   // const getData = async () => {
@@ -59,7 +60,9 @@ const App = () => {
         <Route
           exact
           path="/login"
-          render={() => <Login apiBaseURL={baseURL} />}
+          render={() => (
+            <Login apiBaseURL={baseURL} setSessionUser={setSessionUser} />
+          )}
         />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/game" component={Game} />
