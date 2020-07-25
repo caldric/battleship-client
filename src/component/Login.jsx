@@ -20,7 +20,9 @@ const Login = ({ apiBaseURL }) => {
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     };
-    const response = await fetch(url, config);
+    const response = await fetch(url, config).catch((err) =>
+      console.log('user creation error: ', err)
+    );
 
     // Store user in session storage
     const user = await response.json();
