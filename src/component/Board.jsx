@@ -1,7 +1,7 @@
 // Import
 import React, { useState } from 'react';
 
-const Board = () => {
+const Board = ({ state }) => {
   // State Hooks
   // Initialize board to a 10x10 array of blank strings ('')
   const arrOfBlankStrings = JSON.parse(
@@ -22,12 +22,16 @@ const Board = () => {
   const clickHandler = (event) => {
     // Coordinates of clicked square
     const coordinates = event.currentTarget.id;
-    const [rowIndex, columnIndex] = convertCoordsToIndices(coordinates);
+    const columnCoordinate = coordinates[0];
+    const rowCoordinate = coordinates.slice(1);
+    console.log('Coords', columnCoordinate, rowCoordinate);
+    console.log('Board ID:', state._id);
+    // const [rowIndex, columnIndex] = convertCoordsToIndices(coordinates);
 
-    // Change board state
-    const newBoard = [...board];
-    newBoard[rowIndex][columnIndex] = 'X';
-    setBoard(newBoard);
+    // // Change board state
+    // const newBoard = [...board];
+    // newBoard[rowIndex][columnIndex] = 'X';
+    // setBoard(newBoard);
   };
 
   // Generate 10x10 board with labels
@@ -46,6 +50,12 @@ const Board = () => {
             );
           }
         } else {
+          const columnObject = state ? state[currentColumn] : undefined;
+          const cellObject = columnObject
+            ? columnObject[String(row)]
+            : undefined;
+          const cellValue = cellObject;
+
           if (col === 0) {
             squares.push(<div className="square">{row}</div>);
           } else {
@@ -55,7 +65,7 @@ const Board = () => {
                 id={`${currentColumn}${row}`}
                 onClick={clickHandler}
               >
-                {board[row - 1][col - 1]}
+                {cellValue}
               </div>
             );
           }

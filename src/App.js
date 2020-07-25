@@ -70,7 +70,11 @@ const App = () => {
           render={() => <Login apiBaseURL={baseURL} getSession={getSession} />}
         />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/game" component={Game} />
+        <Route
+          exact
+          path="/game"
+          render={() => <Game apiURL={`${baseURL}/${API.index}`} />}
+        />
         <Route component={Error} />
       </Switch>
       <Footer />
