@@ -1,5 +1,5 @@
 // Import
-import React, { useState } from 'react';
+import React from 'react';
 
 const Board = ({ state, apiURL, board, gameID, setGame }) => {
   // Event handlers

@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import AllShips from './AllShips';
 import YourBoard from './YourBoard';
 import Board from './Board';
-import Square from './Square';
 
 const Game = ({ apiURL }) => {
   // State Hook

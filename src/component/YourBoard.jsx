@@ -1,6 +1,5 @@
 // Import
 import React, { useState } from 'react';
-import Ship from './Ship';
 
 const YourBoard = ({ currShip }) => {
   // State Hooks
