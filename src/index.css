@@ -65,7 +65,7 @@ code {
 }
 
 .image {
-  background-color: red;
+  background-color: rgb(199, 0, 0);
   position: relative;
 }
 
@@ -76,4 +76,14 @@ img {
   left: -200%;
   z-index: 1;
   width: 500%;
+}
+
+.shipContainer {
+  display: inline-block;
+  width: fit-content;
+  margin: auto 5px;
+}
+
+.allships {
+  display: inline-block;
 }

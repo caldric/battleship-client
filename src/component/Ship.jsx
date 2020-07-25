@@ -10,22 +10,12 @@ const Ship = (props) => {
     return squareArr;
   };
 
-  const rotateSquare = (event) => {
-    let parentElem = event.target.parentNode;
-    parentElem.childNodes[0].classList.toggle('rotate');
-  };
-
   return (
-    <div>
-      <div className="shipContainer">
-        <div id={`${props.name}`} className={`image ships ship${props.length}`}>
-          <img src="./battleship-drawing.png" alt="" />
-          {displaySquares().map((val, i) => {
-            return val;
-          })}
-        </div>
-        <button onClick={(e) => rotateSquare(e)}>Rotate</button>
-      </div>
+    <div id={`${props.name}`} className={`image ships ship${props.length}`}>
+      <img src="./battleship-drawing.png" alt="" />
+      {displaySquares().map((val, i) => {
+        return val;
+      })}
     </div>
   );
 };
