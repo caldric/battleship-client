@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-const NewGame = ({ apiURL, setBoards }) => {
+const NewGame = ({ apiURL }) => {
   // State Hooks
   const [gameID, setGameID] = useState('');
   const [redirect, setRedirect] = useState(false);
 
-  // Fetch API data function
+  // Create new game function
   const createGame = async () => {
     // Make POST request to API
     const url = `${apiURL}/create/game`;
@@ -20,7 +20,6 @@ const NewGame = ({ apiURL, setBoards }) => {
     const data = await response.json();
 
     // Set states
-    setBoards(data);
     setGameID(data._id);
     setRedirect(true);
   };

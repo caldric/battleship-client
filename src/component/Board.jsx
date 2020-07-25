@@ -25,7 +25,6 @@ const Board = ({ state }) => {
     const columnCoordinate = coordinates[0];
     const rowCoordinate = coordinates.slice(1);
     console.log('Coords', columnCoordinate, rowCoordinate);
-    console.log('Board ID:', state._id);
     // const [rowIndex, columnIndex] = convertCoordsToIndices(coordinates);
 
     // // Change board state
