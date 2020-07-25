@@ -27,6 +27,9 @@ const Nav = ({ getSession, sessionUser }) => {
         {sessionUser ? (
           <>
             <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
               <Link to="/game">Game</Link>
             </li>
             <li>

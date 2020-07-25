@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from './Board';
+import Square from './Square';
 
 const Game = () => {
   return (
@@ -9,6 +10,13 @@ const Game = () => {
       <Board />
       <p>YOUR SHIPS</p>
       <Board />
+      <div id="carrier" className="ships">
+        <Square />
+        <Square />
+        <Square />
+        <Square />
+        <Square />
+      </div>
     </div>
   );
 };
