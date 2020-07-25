@@ -10,7 +10,6 @@ import Landing from './component/Landing';
 import Signup from './component/Signup';
 import Login from './component/Login';
 import Game from './component/Game';
-import NewGame from './component/NewGame';
 import Error from './component/Error';
 
 // Configuration
@@ -71,12 +70,7 @@ const App = () => {
           render={() => <Login apiBaseURL={baseURL} getSession={getSession} />}
         />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/new/game">
-          <NewGame apiURL={`${baseURL}/${API.index}`} />
-        </Route>
-        <Route path="/game/:gameID">
-          <Game apiURL={`${baseURL}/${API.index}`} />
-        </Route>
+        <Route exact path="/game" component={Game} />
         <Route component={Error} />
       </Switch>
       <Footer />

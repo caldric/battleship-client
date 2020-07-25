@@ -30,7 +30,7 @@ const Nav = ({ getSession, sessionUser }) => {
               <Link to="/profile">Profile</Link>
             </li>
             <li>
-              <Link to="/new/game">New game</Link>
+              <Link to="/game">Game</Link>
             </li>
             <li>
               <button type="button" onClick={destroySession}>
