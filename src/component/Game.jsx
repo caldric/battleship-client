@@ -15,7 +15,7 @@ const Game = () => {
       <p>ENEMY SHIPS</p>
       <Board />
       <p>YOUR SHIPS</p>
-      <Board />
+      <Board currShip={currShip} />
       <AllShips setCurrShip={setCurrShip} />
     </div>
   );
