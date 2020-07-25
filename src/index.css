@@ -1,6 +1,7 @@
 /* CSS vars */
 :root {
   --square-side: 30vw;
+  --shipWidth: 20px;
 }
 
 body {
@@ -31,4 +32,48 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ships {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  width: var(--shipWidth);
+  height: calc(var(--shipWidth) * 5);
+  margin: 40px auto;
+}
+
+.ship4 {
+  grid-template-rows: repeat(4, 1fr);
+  width: var(--shipWidth);
+  height: calc(var(--shipWidth) * 4);
+}
+
+.ship3 {
+  grid-template-rows: repeat(3, 1fr);
+  width: var(--shipWidth);
+  height: calc(var(--shipWidth) * 3);
+}
+
+.ship2 {
+  grid-template-rows: repeat(2, 1fr);
+  width: var(--shipWidth);
+  height: calc(var(--shipWidth) * 2);
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.image {
+  background-color: red;
+  position: relative;
+}
+
+img {
+  position: absolute;
+  transform: rotate(90deg);
+  top: 40%;
+  left: -200%;
+  z-index: 1;
+  width: 500%;
 }

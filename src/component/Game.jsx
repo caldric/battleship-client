@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from './Board';
-import Square from './Square';
+import AllShips from './AllShips';
 
 const Game = () => {
   return (
@@ -10,13 +10,7 @@ const Game = () => {
       <Board />
       <p>YOUR SHIPS</p>
       <Board />
-      <div id="carrier" className="ships">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
+      <AllShips />
     </div>
   );
 };
