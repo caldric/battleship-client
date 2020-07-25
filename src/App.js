@@ -10,6 +10,7 @@ import Landing from './component/Landing';
 import Signup from './component/Signup';
 import Login from './component/Login';
 import Game from './component/Game';
+import NewGame from './component/NewGame';
 import Error from './component/Error';
 
 // Configuration
@@ -26,6 +27,7 @@ const baseURL =
 // Functional react component
 const App = () => {
   // State Hook: [stateVariable, stateVariableSetter] = useState(initialState);
+  const [boards, setBoards] = useState({ board1: {}, board2: {} });
   const [data, setData] = useState([]);
   const [sessionUser, setSessionUser] = useState('');
 
@@ -70,6 +72,13 @@ const App = () => {
           render={() => <Login apiBaseURL={baseURL} getSession={getSession} />}
         />
         <Route exact path="/profile" component={Profile} />
+        <Route
+          exact
+          path="/new/game"
+          render={() => (
+            <NewGame apiURL={`${baseURL}/${API.index}`} setBoards={setBoards} />
+          )}
+        />
         <Route
           exact
           path="/game"
