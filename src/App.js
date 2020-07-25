@@ -79,11 +79,9 @@ const App = () => {
             <NewGame apiURL={`${baseURL}/${API.index}`} setBoards={setBoards} />
           )}
         />
-        <Route
-          exact
-          path="/game"
-          render={() => <Game apiURL={`${baseURL}/${API.index}`} />}
-        />
+        <Route path="/game/:gameID">
+          <Game apiURL={`${baseURL}/${API.index}`} />
+        </Route>
         <Route component={Error} />
       </Switch>
       <Footer />

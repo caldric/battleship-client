@@ -1,13 +1,17 @@
 // Imports
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import Board from './Board';
 import Square from './Square';
 
 const Game = ({ apiURL }) => {
+  const { gameID } = useParams();
+
   return (
     <div>
       <h1>The Game</h1>
       <p>ENEMY SHIPS</p>
+      <p>Game ID: {gameID}</p>
       <Board state={{}} />
       <p>YOUR SHIPS</p>
       <div id="carrier" className="ships">
