@@ -47,7 +47,6 @@ const Game = ({ apiURL }) => {
         setGame={setGame}
         currShip={currShip}
       />
-      <AllShips setCurrShip={setCurrShip} />
       <p>YOUR SHIPS</p>
       <Board
         state={game.board2}
@@ -58,13 +57,6 @@ const Game = ({ apiURL }) => {
         currShip={currShip}
       />
       <AllShips setCurrShip={setCurrShip} />
-      <div id="carrier" className="ships">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
     </div>
   );
 };
