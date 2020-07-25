@@ -10,9 +10,7 @@ const Nav = ({ getSession, sessionUser }) => {
   };
 
   useEffect(() => {
-    console.log('Triggered');
     getSession();
-    console.log('Session user inside: ', sessionUser);
   }, []);
 
   // Render
