@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from './Board';
-import Square from './Square';
+import AllShips from './Ship';
 
 const Game = () => {
   return (
@@ -10,35 +10,7 @@ const Game = () => {
       <Board />
       <p>YOUR SHIPS</p>
       <Board />
-      <div id="allships" className="allships">
-        <div id="carrier" className="image ships">
-          <Square />
-          <Square />
-          <Square />
-          <Square />
-          <Square />
-        </div>
-        <div id="battleship" className="image ships">
-          <Square />
-          <Square />
-          <Square />
-          <Square />
-        </div>
-        <div id="cruiser" className="image ships">
-          <Square />
-          <Square />
-          <Square />
-        </div>
-        <div id="submarine" className="image ships">
-          <Square />
-          <Square />
-          <Square />
-        </div>
-        <div id="destroyer" className="image ships">
-          <Square />
-          <Square />
-        </div>
-      </div>
+      <AllShips />
     </div>
   );
 };
