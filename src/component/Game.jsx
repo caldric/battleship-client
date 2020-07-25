@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Board from './Board';
 import AllShips from './AllShips';
+import YourBoard from './YourBoard';
 
 const Game = () => {
   const [currShip, setCurrShip] = useState({
@@ -15,7 +16,7 @@ const Game = () => {
       <p>ENEMY SHIPS</p>
       <Board />
       <p>YOUR SHIPS</p>
-      <Board currShip={currShip} />
+      <YourBoard currShip={currShip} />
       <AllShips setCurrShip={setCurrShip} />
     </div>
   );
