@@ -76,12 +76,7 @@ const YourBoard = ({ currShip }) => {
     return squares;
   };
 
-  return (
-    <div className="board">
-      {generateBoard()}
-      <Ship length={currShip.length} name={currShip.name} />
-    </div>
-  );
+  return <div className="board">{generateBoard()}</div>;
 };
 
 // Board export

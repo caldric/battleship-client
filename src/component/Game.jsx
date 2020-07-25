@@ -50,14 +50,6 @@ const Game = ({ apiURL }) => {
       />
       <p>YOUR SHIPS</p>
       <YourBoard currShip={currShip} />
-      <Board
-        state={game.board2}
-        apiURL={apiURL}
-        board={'board2'}
-        gameID={game._id}
-        setGame={setGame}
-        currShip={currShip}
-      />
       <AllShips setCurrShip={setCurrShip} />
     </div>
   );

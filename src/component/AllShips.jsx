@@ -1,5 +1,4 @@
 import React from 'react';
-import Square from './Square';
 import Ship from './Ship';
 
 const AllShips = (props) => {
