@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Board from './Board';
-import Square from './Square';
+import AllShips from './AllShips';
 
 const Game = ({ apiURL }) => {
   // State Hook
