@@ -60,6 +60,10 @@ code {
   height: calc(var(--shipWidth) * 2);
 }
 
+.rotate {
+  transform: rotate(90deg);
+}
+
 .image {
   background-color: red;
   position: relative;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from './Board';
-import AllShips from './Ship';
+import AllShips from './AllShips';
 
 const Game = () => {
   return (

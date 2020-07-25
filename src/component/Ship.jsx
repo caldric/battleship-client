@@ -1,45 +1,33 @@
 import React from 'react';
 import Square from './Square';
 
-const AllShips = () => {
+const Ship = (props) => {
+  const displaySquares = () => {
+    let squareArr = [];
+    for (let i = 0; i < props.length; i++) {
+      squareArr.push(<Square />);
+    }
+    return squareArr;
+  };
+
+  const rotateSquare = (event) => {
+    let parentElem = event.target.parentNode;
+    parentElem.childNodes[0].classList.toggle('rotate');
+  };
+
   return (
     <div>
-      <div id="allships" className="allships">
-        <div id="carrier" className="image ships ship5">
+      <div className="shipContainer">
+        <div id={`${props.name}`} className={`image ships ship${props.length}`}>
           <img src="./battleship-drawing.png" alt="" />
-          <Square />
-          <Square />
-          <Square />
-          <Square />
-          <Square />
+          {displaySquares().map((val, i) => {
+            return val;
+          })}
         </div>
-        <div id="battleship" className="image ships ship4">
-          <img src="./battleship-drawing.png" alt="" />
-          <Square />
-          <Square />
-          <Square />
-          <Square />
-        </div>
-        <div id="cruiser" className="image ships ship3">
-          <img src="./battleship-drawing.png" alt="" />
-          <Square />
-          <Square />
-          <Square />
-        </div>
-        <div id="submarine" className="image ships ship3">
-          <img src="./battleship-drawing.png" alt="" />
-          <Square />
-          <Square />
-          <Square />
-        </div>
-        <div id="destroyer" className="image ships ship2">
-          <img src="./battleship-drawing.png" alt="" />
-          <Square />
-          <Square />
-        </div>
+        <button onClick={(e) => rotateSquare(e)}>Rotate</button>
       </div>
     </div>
   );
 };
 
-export default AllShips;
+export default Ship;
