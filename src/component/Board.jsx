@@ -1,27 +1,33 @@
 // Import
 import React, { useState } from 'react';
 
-const Board = ({ state, apiURL, board, gameID, setGame }) => {
+const Board = () => {
+  // State Hooks
+  // Initialize board to a 10x10 array of blank strings ('')
+  const arrOfBlankStrings = JSON.parse(
+    JSON.stringify(Array(10).fill(Array(10).fill('')))
+  );
+  const [board, setBoard] = useState(arrOfBlankStrings);
+
+  const convertCoordsToIndices = (coordinates) => {
+    // Convert column letter to number: A=0, B=1, ..., J=9
+    const columnIndex = coordinates[0].charCodeAt() - 65;
+    // Chars after the first char: 1=>0, 2=>1, ..., 10=>9
+    const rowIndex = parseInt(coordinates.slice(1)) - 1;
+
+    return [rowIndex, columnIndex];
+  };
+
   // Event handlers
-  const clickHandler = async (event) => {
+  const clickHandler = (event) => {
     // Coordinates of clicked square
     const coordinates = event.currentTarget.id;
-    const columnCoordinate = coordinates[0];
-    const rowCoordinate = coordinates.slice(1);
-    console.log('Coords', columnCoordinate, rowCoordinate);
+    const [rowIndex, columnIndex] = convertCoordsToIndices(coordinates);
 
-    // Make put request
-    const url = `${apiURL}/games/${gameID}`;
-    const config = {
-      method: 'PUT',
-      body: `{"${board}.${columnCoordinate}.${rowCoordinate}":"X"}`,
-      headers: { 'Content-Type': 'application/json' },
-    };
-    const response = await fetch(url, config);
-    const data = await response.json();
-
-    // Change states
-    setGame(data);
+    // Change board state
+    const newBoard = [...board];
+    newBoard[rowIndex][columnIndex] = 'X';
+    setBoard(newBoard);
   };
 
   // Generate 10x10 board with labels
@@ -40,12 +46,6 @@ const Board = ({ state, apiURL, board, gameID, setGame }) => {
             );
           }
         } else {
-          const columnObject = state ? state[currentColumn] : undefined;
-          const cellObject = columnObject
-            ? columnObject[String(row)]
-            : undefined;
-          const cellValue = cellObject;
-
           if (col === 0) {
             squares.push(<div className="square">{row}</div>);
           } else {
@@ -55,7 +55,7 @@ const Board = ({ state, apiURL, board, gameID, setGame }) => {
                 id={`${currentColumn}${row}`}
                 onClick={clickHandler}
               >
-                {cellValue}
+                {board[row - 1][col - 1]}
               </div>
             );
           }
@@ -65,7 +65,6 @@ const Board = ({ state, apiURL, board, gameID, setGame }) => {
     return squares;
   };
 
-  // Render
   return <div className="board">{generateBoard()}</div>;
 };
 
