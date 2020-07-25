@@ -25,11 +25,19 @@ const Nav = ({ getSession, sessionUser }) => {
           <Link to="/signup">Sign up</Link>
         </li>
         {sessionUser ? (
-          <li>
-            <button type="button" onClick={destroySession}>
-              Logout
-            </button>
-          </li>
+          <>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/game">Game</Link>
+            </li>
+            <li>
+              <button type="button" onClick={destroySession}>
+                Logout
+              </button>
+            </li>
+          </>
         ) : (
           <li>
             <Link to="/login">Login</Link>
