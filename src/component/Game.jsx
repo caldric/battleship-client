@@ -5,7 +5,9 @@ const Game = () => {
   return (
     <div>
       <h1>The Game</h1>
-      <p>SHIPS DOWN</p>
+      <p>ENEMY SHIPS</p>
+      <Board />
+      <p>YOUR SHIPS</p>
       <Board />
     </div>
   );
