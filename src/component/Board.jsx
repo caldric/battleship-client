@@ -1,33 +1,27 @@
 // Import
 import React, { useState } from 'react';
 
-const Board = () => {
-  // State Hooks
-  // Initialize board to a 10x10 array of blank strings ('')
-  const arrOfBlankStrings = JSON.parse(
-    JSON.stringify(Array(10).fill(Array(10).fill('')))
-  );
-  const [board, setBoard] = useState(arrOfBlankStrings);
-
-  const convertCoordsToIndices = (coordinates) => {
-    // Convert column letter to number: A=0, B=1, ..., J=9
-    const columnIndex = coordinates[0].charCodeAt() - 65;
-    // Chars after the first char: 1=>0, 2=>1, ..., 10=>9
-    const rowIndex = parseInt(coordinates.slice(1)) - 1;
-
-    return [rowIndex, columnIndex];
-  };
-
+const Board = ({ state, apiURL, board, gameID, setGame }) => {
   // Event handlers
-  const clickHandler = (event) => {
+  const clickHandler = async (event) => {
     // Coordinates of clicked square
     const coordinates = event.currentTarget.id;
-    const [rowIndex, columnIndex] = convertCoordsToIndices(coordinates);
+    const columnCoordinate = coordinates[0];
+    const rowCoordinate = coordinates.slice(1);
+    console.log('Coords', columnCoordinate, rowCoordinate);
 
-    // Change board state
-    const newBoard = [...board];
-    newBoard[rowIndex][columnIndex] = 'X';
-    setBoard(newBoard);
+    // Make put request
+    const url = `${apiURL}/games/${gameID}`;
+    const config = {
+      method: 'PUT',
+      body: `{"${board}.${columnCoordinate}.${rowCoordinate}":"X"}`,
+      headers: { 'Content-Type': 'application/json' },
+    };
+    const response = await fetch(url, config);
+    const data = await response.json();
+
+    // Change states
+    setGame(data);
   };
 
   // Generate 10x10 board with labels
@@ -46,6 +40,12 @@ const Board = () => {
             );
           }
         } else {
+          const columnObject = state ? state[currentColumn] : undefined;
+          const cellObject = columnObject
+            ? columnObject[String(row)]
+            : undefined;
+          const cellValue = cellObject;
+
           if (col === 0) {
             squares.push(<div className="square">{row}</div>);
           } else {
@@ -55,7 +55,7 @@ const Board = () => {
                 id={`${currentColumn}${row}`}
                 onClick={clickHandler}
               >
-                {board[row - 1][col - 1]}
+                {cellValue}
               </div>
             );
           }
@@ -65,6 +65,7 @@ const Board = () => {
     return squares;
   };
 
+  // Render
   return <div className="board">{generateBoard()}</div>;
 };
 
