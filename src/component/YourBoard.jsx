@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Ship from './Ship';
 
-const YourBoard = (currShip) => {
+const YourBoard = ({ currShip }) => {
   // State Hooks
   // Initialize board to a 10x10 array of blank strings ('')
   const arrOfBlankStrings = JSON.parse(
@@ -27,7 +27,15 @@ const YourBoard = (currShip) => {
 
     // Change board state
     const newBoard = [...board];
-    newBoard[rowIndex][columnIndex] = 'X';
+    if (!currShip.rotate) {
+      for (let i = 0; i < currShip.length; i++) {
+        newBoard[rowIndex + i][columnIndex] = 'X';
+      }
+    } else {
+      for (let i = 0; i < currShip.length; i++) {
+        newBoard[rowIndex][columnIndex + i] = 'X';
+      }
+    }
     setBoard(newBoard);
 
     // <Ship length={currShip.length} name={currShip.name} />;
