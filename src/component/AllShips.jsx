@@ -15,35 +15,59 @@ const AllShips = () => {
           <Ship length={5} name={'carrier'} />
           <button onClick={(e) => rotateSquare(e)}>Rotate</button>
           <label htmlFor="shipRadio">Select for placement</label>
-          <input type="radio" name="shipRadio" className={`radio-carrier`} />
+          <input
+            type="radio"
+            name="shipRadio"
+            className={`radio-carrier`}
+            value="carrier"
+          />
         </div>
 
         <div className="shipContainer">
           <Ship length={4} name={'battleship'} />
           <button onClick={(e) => rotateSquare(e)}>Rotate</button>
           <label htmlFor="shipRadio">Select for placement</label>
-          <input type="radio" name="shipRadio" className={`radio-battleship`} />
+          <input
+            type="radio"
+            name="shipRadio"
+            className={`radio-battleship`}
+            value="battleship"
+          />
         </div>
 
         <div className="shipContainer">
           <Ship length={3} name={'cruiser'} />
           <button onClick={(e) => rotateSquare(e)}>Rotate</button>
           <label htmlFor="shipRadio">Select for placement</label>
-          <input type="radio" name="shipRadio" className={`radio-cruiser`} />
+          <input
+            type="radio"
+            name="shipRadio"
+            className={`radio-cruiser`}
+            value="cruiser"
+          />
         </div>
 
         <div className="shipContainer">
           <Ship length={3} name={'submarine'} />
           <button onClick={(e) => rotateSquare(e)}>Rotate</button>
           <label htmlFor="shipRadio">Select for placement</label>
-          <input type="radio" name="shipRadio" className={`radio-submarine`} />
+          <input
+            type="radio"
+            name="shipRadio"
+            className={`radio-submarine`}
+            value="submarine"
+          />
         </div>
 
         <div className="shipContainer">
           <Ship length={2} name={'destroyer'} />
           <button onClick={(e) => rotateSquare(e)}>Rotate</button>
-          <label htmlFor="shipRadio">Select for placement</label>
-          <input type="radio" name="shipRadio" className={`radio-destroyer`} />
+          <button
+            onClick={() => setCurrShip({ name: '' })}
+            className={`place-destroyer`}
+          >
+            Place
+          </button>
         </div>
       </div>
     </div>
