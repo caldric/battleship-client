@@ -54,7 +54,7 @@ const Login = ({ apiBaseURL }) => {
         onChange={(event) => setPassword(event.currentTarget.value)}
       />
       <br />
-      <button type="submit">Submit</button>
+      <button type="submit">Login</button>
     </form>
   );
 };
