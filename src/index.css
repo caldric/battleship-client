@@ -32,3 +32,15 @@ code {
   justify-content: center;
   align-items: center;
 }
+
+.ships {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  width: 20px;
+  height: 100px;
+  margin: 40px auto;
+}
+
+.image {
+  background-color: red;
+}

@@ -10,12 +10,34 @@ const Game = () => {
       <Board />
       <p>YOUR SHIPS</p>
       <Board />
-      <div id="carrier" className="ships">
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-        <Square />
+      <div id="allships" className="allships">
+        <div id="carrier" className="image ships">
+          <Square />
+          <Square />
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div id="battleship" className="image ships">
+          <Square />
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div id="cruiser" className="image ships">
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div id="submarine" className="image ships">
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div id="destroyer" className="image ships">
+          <Square />
+          <Square />
+        </div>
       </div>
     </div>
   );
