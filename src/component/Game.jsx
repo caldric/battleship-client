@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import AllShips from './AllShips';
+import YourBoard from './YourBoard';
 import Board from './Board';
 import Square from './Square';
 
@@ -48,14 +49,7 @@ const Game = ({ apiURL }) => {
         currShip={currShip}
       />
       <p>YOUR SHIPS</p>
-      <Board
-        state={game.board2}
-        apiURL={apiURL}
-        board={'board2'}
-        gameID={game._id}
-        setGame={setGame}
-        currShip={currShip}
-      />
+      <YourBoard currShip={currShip} />
       <AllShips setCurrShip={setCurrShip} />
     </div>
   );

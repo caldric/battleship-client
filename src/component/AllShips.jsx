@@ -1,5 +1,4 @@
 import React from 'react';
-import Square from './Square';
 import Ship from './Ship';
 
 const AllShips = (props) => {
@@ -36,7 +35,7 @@ const AllShips = (props) => {
       default:
         break;
     }
-    console.log(`placeShip`, { name: name, length: length, rotate: rotate });
+    // console.log(`placeShip`, { name: name, length: length, rotate: rotate });
     props.setCurrShip({ name: name, length: length, rotate: rotate });
   };
 
