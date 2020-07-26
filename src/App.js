@@ -12,6 +12,7 @@ import Login from './component/Login';
 import Game from './component/Game';
 import NewGame from './component/NewGame';
 import Error from './component/Error';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Configuration
 const API = {
