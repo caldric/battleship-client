@@ -20,14 +20,16 @@ const Login = ({ apiBaseURL, getSession }) => {
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     };
-    const response = await fetch(url, config).catch((err) =>
-      console.log('user creation error: ', err)
-    );
+    const response = await fetch(url, config);
 
     // Store user in session storage
     const user = await response.json();
-    sessionStorage.setItem('user', JSON.stringify(user));
-    getSession();
+    console.log(user);
+    console.log('Response status: ', response.status);
+    if (response.status === 200) {
+      sessionStorage.setItem('user', JSON.stringify(user));
+      getSession();
+    }
 
     // Change redirect state to true in order to trigger redirect
     setRedirect(true);
