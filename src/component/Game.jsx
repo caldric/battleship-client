@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import AllShips from './AllShips';
 import YourBoard from './YourBoard';
 import Board from './Board';
-import Square from './Square';
 
 const Game = ({ apiURL }) => {
   // State Hook
@@ -42,11 +41,11 @@ const Game = ({ apiURL }) => {
       <p>Game ID: {gameID}</p>
       <Board
         state={game.board1}
+        enemyState={game.board2}
         apiURL={apiURL}
         board={'board1'}
         gameID={game._id}
         setGame={setGame}
-        currShip={currShip}
       />
       <p>YOUR SHIPS</p>
       <YourBoard currShip={currShip} />

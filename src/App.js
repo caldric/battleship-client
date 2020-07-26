@@ -1,6 +1,6 @@
 // Imports
 // React
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 // Components
 import Nav from './component/Nav';
@@ -27,7 +27,6 @@ const baseURL =
 // Functional react component
 const App = () => {
   // State Hook: [stateVariable, stateVariableSetter] = useState(initialState);
-  const [data, setData] = useState([]);
   const [sessionUser, setSessionUser] = useState('');
 
   const getSession = () => {
