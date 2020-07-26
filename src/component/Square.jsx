@@ -2,9 +2,14 @@
 import React from 'react';
 
 // Component
-const Square = ({ content = '', divId = null, clickHandler = null }) => {
+const Square = ({
+  content = '',
+  divId = null,
+  clickHandler = null,
+  className = '',
+}) => {
   return (
-    <div className="square" id={divId} onClick={clickHandler}>
+    <div className={`square ${className}`} id={divId} onClick={clickHandler}>
       {content}
     </div>
   );

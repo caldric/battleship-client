@@ -61,7 +61,7 @@ const YourBoard = ({ currShip }) => {
           } else {
             squares.push(
               <div
-                className={`square col-${currentColumn} row-${row}`}
+                className={`square clickable col-${currentColumn} row-${row}`}
                 id={`${currentColumn}${row}`}
                 onClick={clickHandler}
               >

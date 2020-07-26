@@ -59,6 +59,7 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
                 content={cellValue}
                 divId={`${currentColumn}${row}`}
                 clickHandler={clickHandler}
+                className={'clickable'}
               />
             );
           }
