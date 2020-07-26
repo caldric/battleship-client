@@ -1,6 +1,8 @@
+// Import
 import React from 'react';
 
-const Square = ({ content, divId = null, clickHandler = null }) => {
+// Component
+const Square = ({ content = '', divId = null, clickHandler = null }) => {
   return (
     <div className="square" id={divId} onClick={clickHandler}>
       {content}
@@ -8,4 +10,5 @@ const Square = ({ content, divId = null, clickHandler = null }) => {
   );
 };
 
+// Component export
 export default Square;

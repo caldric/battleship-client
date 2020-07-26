@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
+// Component
 const Signup = ({ apiBaseURL }) => {
   // State Hooks
   const [username, setUsername] = useState('');

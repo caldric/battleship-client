@@ -2,10 +2,97 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
+// Component
 const NewGame = ({ apiURL }) => {
   // State Hooks
   const [gameID, setGameID] = useState('');
   const [redirect, setRedirect] = useState(false);
+
+  //Randomize placement of enemy computer's ships
+  const randomEnemy = () => {
+    let allBoardCoordinates = {};
+    let colLetter = '';
+    let boardKeyName = '';
+    let shipsObj = {
+      carrier: {
+        length: 5,
+        coord: [],
+      },
+      battleship: {
+        length: 4,
+        coord: [],
+      },
+      cruiser: {
+        length: 3,
+        coord: [],
+      },
+      submarine: {
+        length: 3,
+        coord: [],
+      },
+      destroyer: {
+        length: 2,
+        coord: [],
+      },
+    };
+
+    for (const ship in shipsObj) {
+      //Set orientation randomly and use it to calculate the starting location boundary and whether to increment X or Y
+      let isHoriz = Math.floor(Math.random() * 2);
+      let isVert = 1 - isHoriz;
+
+      for (let i = 0; i < shipsObj[ship].length; i++) {
+        //Create nested array as each new index of main array
+        shipsObj[ship].coord.push([]);
+        if (i === 0) {
+          //Initialize starting location
+          //First X coordinate
+          shipsObj[ship].coord[i].push(
+            Math.floor(Math.random() * (10 - isHoriz * shipsObj[ship].length))
+          );
+          //First Y coordinate
+          shipsObj[ship].coord[i].push(
+            Math.floor(Math.random() * (10 - isVert * shipsObj[ship].length))
+          );
+
+          //Format object key name to be readable by Mongo database
+          colLetter = String.fromCharCode(65 + shipsObj[ship].coord[i][1]);
+          boardKeyName = `board2.${colLetter}.${
+            shipsObj[ship].coord[i][0] + 1
+          }`;
+          //Add to return object formatted for backend database. If there are overlapping locations then append them.
+          allBoardCoordinates[boardKeyName]
+            ? (allBoardCoordinates[boardKeyName] += ', ' + ship)
+            : (allBoardCoordinates[boardKeyName] = ship);
+        } else {
+          //Add to previous location depending on orientation
+          //Current X coordinate is previous plus direction
+          shipsObj[ship].coord[i].push(
+            shipsObj[ship].coord[i - 1][0] + isHoriz
+          );
+          //Current Y coordinate is previous plus direction
+          shipsObj[ship].coord[i].push(shipsObj[ship].coord[i - 1][1] + isVert);
+
+          //Format object key name to be readable by Mongo database
+          colLetter = String.fromCharCode(65 + shipsObj[ship].coord[i][1]);
+          boardKeyName = `board2.${colLetter}.${
+            shipsObj[ship].coord[i][0] + 1
+          }`;
+          //Add to return object formatted for backend database. If there are overlapping locations then append them.
+          allBoardCoordinates[boardKeyName]
+            ? (allBoardCoordinates[boardKeyName] += ', ' + ship)
+            : (allBoardCoordinates[boardKeyName] = ship);
+        }
+      }
+    }
+
+    console.log(`randomEnemy -> shipsObj`, shipsObj);
+    console.log(
+      `createGame -> ${Object.keys(allBoardCoordinates).length} enemyShips`,
+      allBoardCoordinates
+    );
+    return allBoardCoordinates;
+  };
 
   // Create new game function
   const createGame = async () => {
@@ -13,28 +100,11 @@ const NewGame = ({ apiURL }) => {
     const url = `${apiURL}/create/game`;
 
     // Generate silly computer placement
+    let enemyShips = randomEnemy();
 
     const config = {
       method: 'POST',
-      body: JSON.stringify({
-        'board2.A.1': 'X',
-        'board2.A.2': 'X',
-        'board2.A.3': 'X',
-        'board2.A.4': 'X',
-        'board2.A.5': 'X',
-        'board2.B.1': 'X',
-        'board2.B.2': 'X',
-        'board2.B.3': 'X',
-        'board2.B.4': 'X',
-        'board2.C.1': 'X',
-        'board2.C.2': 'X',
-        'board2.C.3': 'X',
-        'board2.D.1': 'X',
-        'board2.D.2': 'X',
-        'board2.D.3': 'X',
-        'board2.E.1': 'X',
-        'board2.E.2': 'X',
-      }),
+      body: JSON.stringify(enemyShips),
       headers: { 'Content-Type': 'application/json' },
     };
     const response = await fetch(url, config);

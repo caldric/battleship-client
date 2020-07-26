@@ -3,16 +3,15 @@
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 // Components
-import Nav from './component/Nav';
-import Footer from './component/Footer';
-import Profile from './component/Profile';
-import Landing from './component/Landing';
-import Signup from './component/Signup';
-import Login from './component/Login';
-import Game from './component/Game';
-import NewGame from './component/NewGame';
 import Error from './component/Error';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './component/Footer';
+import Game from './component/Game';
+import Landing from './component/Landing';
+import Login from './component/Login';
+import Nav from './component/Nav';
+import NewGame from './component/NewGame';
+import Profile from './component/Profile';
+import Signup from './component/Signup';
 
 // Configuration
 const API = {
@@ -25,34 +24,17 @@ const baseURL =
     ? API.local
     : API.deployment;
 
-// Functional react component
+// Component
 const App = () => {
-  // State Hook: [stateVariable, stateVariableSetter] = useState(initialState);
+  // State Hook
   const [sessionUser, setSessionUser] = useState('');
 
+  // Get session function
   const getSession = () => {
     const userString = sessionStorage.getItem('user');
     const user = userString ? JSON.parse(userString) : userString;
     setSessionUser(user);
   };
-
-  // // Fetch API data function
-  // const getData = async () => {
-  //   // Send GET request to API
-  //   const url = `${baseURL}/${API.index}`;
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-
-  //   // Set state
-  //   setData(data);
-  // };
-
-  // UseEffect Hook: call getData() on mount
-  // useEffect(() => {
-  //   console.log('Triggered!');
-  //   console.log('Session user: ', JSON.parse(sessionStorage.getItem('user')));
-  //   // getData();
-  // }, []);
 
   // Render
   return (
@@ -60,16 +42,12 @@ const App = () => {
       <Nav getSession={getSession} sessionUser={sessionUser} />
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route
-          exact
-          path="/signup"
-          render={() => <Signup apiBaseURL={baseURL} />}
-        />
-        <Route
-          exact
-          path="/login"
-          render={() => <Login apiBaseURL={baseURL} getSession={getSession} />}
-        />
+        <Route exact path="/signup">
+          <Signup apiBaseURL={baseURL} />
+        </Route>
+        <Route exact path="/login">
+          <Login apiBaseURL={baseURL} getSession={getSession} />
+        </Route>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/new/game">
           <NewGame apiURL={`${baseURL}/${API.index}`} />
