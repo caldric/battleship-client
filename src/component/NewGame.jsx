@@ -61,9 +61,9 @@ const NewGame = ({ apiURL }) => {
             shipsObj[ship].coord[i][0] + 1
           }`;
           //Add to return object formatted for backend database. If there are overlapping locations then append them.
-          allBoardCoordinates[boardKeyName] = allBoardCoordinates[boardKeyName]
-            ? `${allBoardCoordinates[boardKeyName]}, ${ship}`
-            : ship;
+          allBoardCoordinates[boardKeyName]
+            ? (allBoardCoordinates[boardKeyName] += ', ' + ship)
+            : (allBoardCoordinates[boardKeyName] = ship);
         } else {
           //Add to previous location depending on orientation
           //Current X coordinate is previous plus direction
@@ -79,9 +79,9 @@ const NewGame = ({ apiURL }) => {
             shipsObj[ship].coord[i][0] + 1
           }`;
           //Add to return object formatted for backend database. If there are overlapping locations then append them.
-          allBoardCoordinates[boardKeyName] = allBoardCoordinates[boardKeyName]
-            ? `${allBoardCoordinates[boardKeyName]}, ${ship}`
-            : ship;
+          allBoardCoordinates[boardKeyName]
+            ? (allBoardCoordinates[boardKeyName] += ', ' + ship)
+            : (allBoardCoordinates[boardKeyName] = ship);
         }
       }
     }
