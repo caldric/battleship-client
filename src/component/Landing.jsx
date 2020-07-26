@@ -7,7 +7,8 @@ const Landing = () => {
     <div>
       <h1>Battleship</h1>
       <main>
-        <p>Instructions</p>
+        <h3>To get started</h3>
+        <p>Go to the navbar </p>
       </main>
     </div>
   );
