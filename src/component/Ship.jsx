@@ -12,7 +12,7 @@ const Ship = (props) => {
 
   return (
     <div id={`${props.name}`} className={`image ships ship${props.length}`}>
-      <img src="./battleship-drawing.png" alt="" />
+      <img src="/battleship-drawing.png" alt="" />
       {displaySquares().map((val, i) => {
         return val;
       })}
