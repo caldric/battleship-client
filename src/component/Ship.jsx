@@ -1,15 +1,18 @@
+// Imports
 import React from 'react';
 import Square from './Square';
 
+// Component
 const Ship = (props) => {
   const displaySquares = () => {
-    let squareArr = [];
+    const squares = [];
     for (let i = 0; i < props.length; i++) {
-      squareArr.push(<Square />);
+      squares.push(<Square />);
     }
-    return squareArr;
+    return squares;
   };
 
+  // Render
   return (
     <div id={`${props.name}`} className={`image ships ship${props.length}`}>
       <img src="./battleship-drawing.png" alt="" />
@@ -20,4 +23,5 @@ const Ship = (props) => {
   );
 };
 
+// Component export
 export default Ship;
