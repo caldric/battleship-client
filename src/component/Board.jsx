@@ -1,7 +1,7 @@
 // Import
 import React from 'react';
 
-const Board = ({ state, apiURL, board, gameID, setGame }) => {
+const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
   // Event handlers
   const clickHandler = async (event) => {
     // Coordinates of clicked square
@@ -10,18 +10,22 @@ const Board = ({ state, apiURL, board, gameID, setGame }) => {
     const rowCoordinate = coordinates.slice(1);
     console.log('Coords', columnCoordinate, rowCoordinate);
 
+    // Get the result of the enemy's coordinates
+    const enemyCheck = enemyState[columnCoordinate][rowCoordinate];
+
     // Make put request
-    const url = `${apiURL}/games/${gameID}`;
+    const putUrl = `${apiURL}/games/${gameID}`;
+    const playerMark = enemyCheck ? 'H' : 'M';
     const config = {
       method: 'PUT',
-      body: `{"${board}.${columnCoordinate}.${rowCoordinate}":"X"}`,
+      body: `{"${board}.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
       headers: { 'Content-Type': 'application/json' },
     };
-    const response = await fetch(url, config);
-    const data = await response.json();
+    const putResponse = await fetch(putUrl, config);
+    const putData = await putResponse.json();
 
     // Change states
-    setGame(data);
+    setGame(putData);
   };
 
   // Generate 10x10 board with labels

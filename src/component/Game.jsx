@@ -41,11 +41,11 @@ const Game = ({ apiURL }) => {
       <p>Game ID: {gameID}</p>
       <Board
         state={game.board1}
+        enemyState={game.board2}
         apiURL={apiURL}
         board={'board1'}
         gameID={game._id}
         setGame={setGame}
-        currShip={currShip}
       />
       <p>YOUR SHIPS</p>
       <YourBoard currShip={currShip} />
