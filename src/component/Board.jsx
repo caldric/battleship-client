@@ -37,10 +37,12 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
         const currentColumn = String.fromCharCode(64 + col);
         if (row === 0) {
           if (col === 0) {
-            squares.push(<div className="square"> </div>);
+            squares.push(<div className="square unclickable"> </div>);
           } else {
             squares.push(
-              <div className="square">{String.fromCharCode(64 + col)}</div>
+              <div className="square unclickable">
+                {String.fromCharCode(64 + col)}
+              </div>
             );
           }
         } else {
@@ -51,7 +53,7 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
           const cellValue = cellObject;
 
           if (col === 0) {
-            squares.push(<div className="square">{row}</div>);
+            squares.push(<div className="square unclickable">{row}</div>);
           } else {
             squares.push(
               <div

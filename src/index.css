@@ -87,3 +87,8 @@ img {
 .allships {
   display: inline-block;
 }
+
+.square:not(.unclickable),
+button {
+  cursor: pointer;
+}
