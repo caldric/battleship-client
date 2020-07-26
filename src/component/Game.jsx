@@ -1,9 +1,11 @@
 // Imports
+// React
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+// Components
 import AllShips from './AllShips';
-import YourBoard from './YourBoard';
 import Board from './Board';
+import YourBoard from './YourBoard';
 
 const Game = ({ apiURL }) => {
   // State Hook
@@ -14,7 +16,7 @@ const Game = ({ apiURL }) => {
     rotate: false,
   });
 
-  // Pull out parameters from URL
+  // Pull out parameter from URL
   const { gameID } = useParams();
 
   // On mount function

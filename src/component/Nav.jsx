@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+// Component
 const Nav = ({ getSession, sessionUser }) => {
   // Logout on click handler
   const destroySession = () => {
