@@ -1,6 +1,8 @@
 // Import
 import React from 'react';
+import Square from './Square';
 
+// Component
 const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
   // Event handlers
   const clickHandler = async (event) => {
@@ -8,24 +10,23 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
     const coordinates = event.currentTarget.id;
     const columnCoordinate = coordinates[0];
     const rowCoordinate = coordinates.slice(1);
-    console.log('Coords', columnCoordinate, rowCoordinate);
 
     // Get the result of the enemy's coordinates
     const enemyCheck = enemyState[columnCoordinate][rowCoordinate];
 
     // Make put request
-    const putUrl = `${apiURL}/games/${gameID}`;
+    const url = `${apiURL}/games/${gameID}`;
     const playerMark = enemyCheck ? 'H' : 'M';
     const config = {
       method: 'PUT',
       body: `{"${board}.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
       headers: { 'Content-Type': 'application/json' },
     };
-    const putResponse = await fetch(putUrl, config);
-    const putData = await putResponse.json();
+    const response = await fetch(url, config);
+    const data = await response.json();
 
     // Change states
-    setGame(putData);
+    setGame(data);
   };
 
   // Generate 10x10 board with labels
@@ -35,17 +36,15 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
     for (let row = 0; row < numSquares; ++row) {
       for (let col = 0; col < numSquares; ++col) {
         const currentColumn = String.fromCharCode(64 + col);
+
         if (row === 0) {
           if (col === 0) {
-            squares.push(<div className="square unclickable"> </div>);
+            squares.push(<Square />);
           } else {
-            squares.push(
-              <div className="square unclickable">
-                {String.fromCharCode(64 + col)}
-              </div>
-            );
+            squares.push(<Square content={currentColumn} />);
           }
         } else {
+          // Get cell content
           const columnObject = state ? state[currentColumn] : undefined;
           const cellObject = columnObject
             ? columnObject[String(row)]
@@ -53,16 +52,15 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
           const cellValue = cellObject;
 
           if (col === 0) {
-            squares.push(<div className="square unclickable">{row}</div>);
+            squares.push(<Square content={String(row)} />);
           } else {
             squares.push(
-              <div
-                className={`square col-${currentColumn} row-${row}`}
-                id={`${currentColumn}${row}`}
-                onClick={clickHandler}
-              >
-                {cellValue}
-              </div>
+              <Square
+                content={cellValue}
+                divId={`${currentColumn}${row}`}
+                clickHandler={clickHandler}
+                className={'clickable'}
+              />
             );
           }
         }

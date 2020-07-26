@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
+// Component
 const Login = ({ apiBaseURL, getSession }) => {
   // State Hooks
   const [username, setUsername] = useState('');
@@ -24,8 +25,6 @@ const Login = ({ apiBaseURL, getSession }) => {
 
     // Store user in session storage
     const user = await response.json();
-    console.log(user);
-    console.log('Response status: ', response.status);
     if (response.status === 200) {
       sessionStorage.setItem('user', JSON.stringify(user));
       getSession();

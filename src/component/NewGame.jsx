@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
+// Component
 const NewGame = ({ apiURL }) => {
   // State Hooks
   const [gameID, setGameID] = useState('');
@@ -13,7 +14,6 @@ const NewGame = ({ apiURL }) => {
     const url = `${apiURL}/create/game`;
 
     // Generate silly computer placement
-
     const config = {
       method: 'POST',
       body: JSON.stringify({

@@ -1,5 +1,7 @@
+// Import
 import React from 'react';
 
+// Component
 const Landing = () => {
   return (
     <div>
@@ -11,4 +13,5 @@ const Landing = () => {
   );
 };
 
+// Component export
 export default Landing;

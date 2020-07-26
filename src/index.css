@@ -88,7 +88,7 @@ img {
   display: inline-block;
 }
 
-.square:not(.unclickable),
+.square.clickable,
 button {
   cursor: pointer;
 }

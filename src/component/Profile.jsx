@@ -1,5 +1,7 @@
+// Import
 import React from 'react';
 
+// Component
 const Profile = () => {
   return (
     <div>
@@ -12,4 +14,5 @@ const Profile = () => {
   );
 };
 
+// Component export
 export default Profile;

@@ -1,11 +1,19 @@
+// Import
 import React from 'react';
 
-const Square = ({ content, divId = null, clickHandler = null }) => {
+// Component
+const Square = ({
+  content = '',
+  divId = null,
+  clickHandler = null,
+  className = '',
+}) => {
   return (
-    <div className="square" id={divId} onClick={clickHandler}>
+    <div className={`square ${className}`} id={divId} onClick={clickHandler}>
       {content}
     </div>
   );
 };
 
+// Component export
 export default Square;
