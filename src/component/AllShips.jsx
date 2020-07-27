@@ -12,13 +12,13 @@ const AllShips = (props) => {
   ]);
 
   const rotateSquare = (event) => {
-    let parentElem = event.target.parentNode;
+    let parentElem = event.target.parentNode.childNodes[0];
     parentElem.childNodes[1].classList.toggle('rotate');
   };
 
   const placeShip = (event) => {
     event.preventDefault();
-    let parentElem = event.target.parentNode;
+    let parentElem = event.target.parentNode.childNodes[0];
     let name = parentElem.childNodes[1].id;
 
     let classes = parentElem.childNodes[1].className;
