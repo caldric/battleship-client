@@ -1,5 +1,6 @@
 import React from 'react';
 import Ship from './Ship';
+import { Card, Button } from 'react-bootstrap';
 
 const AllShips = (props) => {
   const rotateSquare = (event) => {
@@ -42,6 +43,26 @@ const AllShips = (props) => {
   return (
     <div className="text-center my-2">
       <div id="allships" className="allships">
+        <Card className="cardContainer m-2 border border-info">
+          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Body>
+            <Card.Title>Carrier</Card.Title>
+            <Ship length={5} name={'carrier'} imgName={'/5.png'} />
+            <Button
+              className="btn btn-sm btn-info m-2 align-bottom"
+              onClick={(e) => rotateSquare(e)}
+            >
+              Rotate
+            </Button>
+            <Button
+              onClick={(e) => placeShip(e)}
+              className={`place-carrier btn btn-sm btn-info m-2`}
+            >
+              Ready to place
+            </Button>
+          </Card.Body>
+        </Card>
+
         <div className="shipContainer border border-info rounded m-2 align-bottom">
           <Ship length={5} name={'carrier'} imgName={'/5.png'} />
           <button
