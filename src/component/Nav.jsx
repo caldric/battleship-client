@@ -34,12 +34,7 @@ const MainNav = ({ getSession, sessionUser }) => {
             <>
               <Nav.Link href="/profile">Profile</Nav.Link>
               <Nav.Link href="/new/game">New Game</Nav.Link>
-              <Button
-                id="btnLogout"
-                onClick={destroySession}
-                type="button"
-                href="/logout"
-              >
+              <Button type="button" id="btnLogout" onClick={destroySession}>
                 Logout
               </Button>
             </>
