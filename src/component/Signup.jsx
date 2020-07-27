@@ -49,7 +49,7 @@ const Signup = ({ apiBaseURL }) => {
         onChange={(event) => setPassword(event.currentTarget.value)}
       />
       <br /> {/* TO-DO: DELETE AFTER CSS */}
-      <button className="btn btn-outline-info m-2" type="submit">
+      <button className="btn btn-primary m-2" type="submit">
         Sign up
       </button>
     </form>
