@@ -36,10 +36,6 @@ code {
   text-decoration: underline;
 }
 
-.gitHubLink {
-  margin-right: 10px;
-}
-
 .footerInfo:hover {
   color: rgb(82, 212, 255);
 }

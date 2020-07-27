@@ -21,7 +21,7 @@ const Footer = () => {
         >
           fork me on GitHub
         </a>
-        | created by:&nbsp;
+        &nbsp;| created by:&nbsp;
         <a
           className="footerInfo"
           href="https://github.com/caldric"
