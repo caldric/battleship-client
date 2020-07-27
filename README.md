@@ -23,4 +23,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Full CRUD functionality
 - Uses RESTful API
 
-## Known Bugs
+![Wireframe](/public/wireframe.png)
+Format: ![Wireframe](url)
