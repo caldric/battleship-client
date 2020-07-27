@@ -52,7 +52,6 @@ const Game = ({ apiURL }) => {
   };
 
   // Render
-  if (redirect) return <Redirect to="/" />;
   return (
     <div className="text-center">
       <h1>The Game</h1>
