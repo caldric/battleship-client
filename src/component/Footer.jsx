@@ -6,7 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Component
 const Footer = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      className="fixed-bottom"
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+    >
       <p className="footer">
         <a className="footerInfo gitHubLink" href="https://github.com">
           fork me on GitHub
