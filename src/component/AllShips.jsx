@@ -43,7 +43,7 @@ const AllShips = (props) => {
     <div className="text-center">
       <div id="allships" className="allships">
         <div className="shipContainer border border-info rounded m-2">
-          <Ship length={5} name={'carrier'} />
+          <Ship length={5} name={'carrier'} imgName={'/5.png'} />
           <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
             Rotate
           </button>
@@ -57,7 +57,7 @@ const AllShips = (props) => {
         </div>
 
         <div className="shipContainer border border-info rounded m-2">
-          <Ship length={4} name={'battleship'} />
+          <Ship length={4} name={'battleship'} imgName={'/3.png'} />
           <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
             Rotate
           </button>
@@ -71,7 +71,7 @@ const AllShips = (props) => {
         </div>
 
         <div className="shipContainer border border-info rounded m-2">
-          <Ship length={3} name={'cruiser'} />
+          <Ship length={3} name={'cruiser'} imgName={'/2.png'} />
           <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
             Rotate
           </button>
@@ -84,7 +84,7 @@ const AllShips = (props) => {
         </div>
 
         <div className="shipContainer border border-info rounded m-2">
-          <Ship length={3} name={'submarine'} />
+          <Ship length={3} name={'submarine'} imgName={'/2.png'} />
           <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
             Rotate
           </button>
@@ -97,7 +97,7 @@ const AllShips = (props) => {
         </div>
 
         <div className="shipContainer border border-info rounded m-2">
-          <Ship length={2} name={'destroyer'} />
+          <Ship length={2} name={'destroyer'} imgName={'/2.png'} />
           <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
             Rotate
           </button>
