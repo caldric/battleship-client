@@ -18,7 +18,13 @@ const MainNav = ({ getSession, sessionUser }) => {
 
   // Render
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className="fixed-top"
+    >
       <Navbar.Brand href="/">Battleship</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

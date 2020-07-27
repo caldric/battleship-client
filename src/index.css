@@ -17,6 +17,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+  padding-top: 70px;
   padding-bottom: 50px;
 }
 
