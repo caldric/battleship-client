@@ -1,8 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Battleship Game](https://playbattleship.herokuapp.com/)
 
-# [Click here for a live Battleship link](https://playbattleship.herokuapp.com/)
+[Click here to play on the live site](https://playbattleship.herokuapp.com/)
 
-# [Battleship Back End](https://github.com/caldric/battleship-api/)
+[Battleship Back End](https://github.com/caldric/battleship-api/)
 
 ## Technologies
 
@@ -24,3 +24,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Uses RESTful API
 
 ## Known Bugs
+
+- Sign up does not automatically log in user
+- Profile does not keep track of user statistics
+- No indication when a enemy ship is sunk, only when you hit/miss
+- Randomly generated enemy ships can potentially overlap
+- Your ships can be placed more than once
+- Your ships can overlap
+- Ships don't display when placed, only representational X's
+- Rotating a ship and then cl
