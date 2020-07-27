@@ -6,7 +6,7 @@
   --shipWidth: 20px;
 }
 
-body {
+* {
   font-family: 'Space Mono', monospace;
 }
 

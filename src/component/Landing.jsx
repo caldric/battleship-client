@@ -4,7 +4,7 @@ import React from 'react';
 // Component
 const Landing = () => {
   return (
-    <div className="text-center">
+    <div className="text-center m-5">
       <h1>Battleship</h1>
       <div>
         <p>Signup or Login to start playing!</p>
