@@ -1,5 +1,5 @@
 // Imports
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Nav, Navbar, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -35,10 +35,10 @@ const MainNav = ({ getSession, sessionUser }) => {
               <Nav.Link href="/profile">Profile</Nav.Link>
               <Nav.Link href="/new/game">New Game</Nav.Link>
               <Button
+                type="button"
                 id="btnLogout"
                 onClick={destroySession}
-                type="button"
-                href="/logout"
+                href="/"
               >
                 Logout
               </Button>
