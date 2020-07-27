@@ -56,6 +56,13 @@ code {
   margin: 10px auto 70px auto;
 }
 
+.boardContainer {
+  background-color: #00346bbf;
+  padding: 15px;
+  height: 360px;
+  border-radius: 15px;
+}
+
 .square {
   border: 1px solid white;
   display: flex;
