@@ -40,7 +40,7 @@ const AllShips = (props) => {
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center my-2">
       <div id="allships" className="allships">
         <div className="shipContainer border border-info rounded m-2">
           <Ship length={5} name={'carrier'} imgName={'/5.png'} />

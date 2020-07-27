@@ -26,13 +26,34 @@ code {
     monospace;
 }
 
+.footer {
+  text-align: center;
+  margin: auto;
+}
+
+.footerInfo {
+  color: white;
+  text-decoration: underline;
+}
+
+.gitHubLink {
+  margin-right: 10px;
+}
+
+.footerInfo:hover {
+  color: rgb(82, 212, 255);
+}
+
+/*******************************************************/
+/****************** GAME PAGE STYLING ******************/
+/*******************************************************/
 .board {
   display: grid;
   grid-template-rows: repeat(11, 1fr);
   grid-template-columns: repeat(11, 1fr);
   width: var(--square-side);
   height: var(--square-side);
-  margin: 40px auto;
+  margin: 10px auto 70px auto;
 }
 
 .square {
@@ -40,6 +61,11 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.square.clickable,
+button {
+  cursor: pointer;
 }
 
 div.ships {
@@ -125,27 +151,4 @@ img {
 
 .allships {
   display: inline-block;
-}
-
-.square.clickable,
-button {
-  cursor: pointer;
-}
-
-.footer {
-  text-align: center;
-  margin: auto;
-}
-
-.footerInfo {
-  color: white;
-  text-decoration: underline;
-}
-
-.gitHubLink {
-  margin-right: 10px;
-}
-
-.footerInfo:hover {
-  color: rgb(82, 212, 255);
 }
