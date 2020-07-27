@@ -57,7 +57,12 @@ const Game = ({ apiURL }) => {
     <div className="text-center">
       <h1>The Game</h1>
       <p>Game URL: {window.location.href}</p>
-      <Button type="button" id="deleteGame" onClick={deleteGame}>
+      <Button
+        type="button"
+        id="deleteGame"
+        onClick={deleteGame}
+        variant="danger"
+      >
         End Game
       </Button>
       <div className="allBoards m-auto text-center">
