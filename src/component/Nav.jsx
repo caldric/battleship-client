@@ -1,7 +1,6 @@
 // Imports
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { Nav, Navbar, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Component

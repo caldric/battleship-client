@@ -49,18 +49,29 @@ const YourBoard = ({ currShip }) => {
         const currentColumn = String.fromCharCode(64 + col);
         if (row === 0) {
           if (col === 0) {
-            squares.push(<div className="square"> </div>);
+            squares.push(
+              <div key={`yourSquare${row}x${col}`} className="square">
+                {' '}
+              </div>
+            );
           } else {
             squares.push(
-              <div className="square">{String.fromCharCode(64 + col)}</div>
+              <div key={`yourSquare${row}x${col}`} className="square">
+                {String.fromCharCode(64 + col)}
+              </div>
             );
           }
         } else {
           if (col === 0) {
-            squares.push(<div className="square">{row}</div>);
+            squares.push(
+              <div key={`yourSquare${row}x${col}`} className="square">
+                {row}
+              </div>
+            );
           } else {
             squares.push(
               <div
+                key={`yourSquare${row}x${col}`}
                 className={`square clickable col-${currentColumn} row-${row}`}
                 id={`${currentColumn}${row}`}
                 onClick={clickHandler}

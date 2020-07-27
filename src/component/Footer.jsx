@@ -1,6 +1,6 @@
 // Import
 import React from 'react';
-import { Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Component

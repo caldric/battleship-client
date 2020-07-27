@@ -14,7 +14,10 @@ const Ship = (props) => {
 
   // Render
   return (
-    <div id={`${props.name}`} className={`image ships ship${props.length}`}>
+    <div
+      id={`${props.name}`}
+      className={`image ships ship${props.length} align-bottom`}
+    >
       <img className={`ship${props.length}`} src={props.imgName} alt="" />
       {displaySquares().map((val, i) => {
         return val;
