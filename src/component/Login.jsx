@@ -60,7 +60,7 @@ const Login = ({ apiBaseURL, getSession }) => {
         onChange={(event) => setPassword(event.currentTarget.value)}
       />
       <br />
-      <button className="btn btn-outline-info m-2" type="submit">
+      <button className="btn btn-primary m-2" type="submit">
         Login
       </button>
     </form>
