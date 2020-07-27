@@ -149,6 +149,10 @@ img {
   vertical-align: bottom;
 }
 
+.shipContainer button {
+  vertical-align: bottom;
+}
+
 .allships {
   display: inline-block;
 }
