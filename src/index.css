@@ -118,12 +118,12 @@ img.ship4 {
 }
 
 img.ship3 {
-  width: 65px;
-  height: 30px;
+  width: 58px;
+  height: 20px;
   position: absolute;
   transform: rotate(90deg);
-  top: 26%;
-  left: -113%;
+  top: 34%;
+  left: -93%;
   z-index: 1;
 }
 

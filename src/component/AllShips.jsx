@@ -66,19 +66,19 @@ const AllShips = (props) => {
                     name={val.name}
                     imgName={`/ship${val.length}.png`}
                   />
-                  <Button
-                    className="btn btn-sm btn-info m-2 align-bottom"
-                    onClick={(e) => rotateSquare(e)}
-                  >
-                    Rotate
-                  </Button>
-                  <Button
-                    onClick={(e) => placeShip(e)}
-                    className={`place-carrier btn btn-sm btn-info m-2`}
-                  >
-                    Ready to place
-                  </Button>
                 </Card.Body>
+                <Button
+                  className="btn btn-sm btn-info m-2 align-bottom"
+                  onClick={(e) => rotateSquare(e)}
+                >
+                  Rotate
+                </Button>
+                <Button
+                  onClick={(e) => placeShip(e)}
+                  className={`place-carrier btn btn-sm btn-info m-2`}
+                >
+                  Ready to place
+                </Button>
               </Card>
             );
           })}
