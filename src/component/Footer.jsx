@@ -1,6 +1,6 @@
 // Import
 import React from 'react';
-import { Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Component
@@ -14,19 +14,39 @@ const Footer = () => {
       variant="dark"
     >
       <p className="footer">
-        <a className="footerInfo gitHubLink" href="https://github.com">
+        <a
+          className="footerInfo gitHubLink"
+          href="https://github.com/caldric/battleship-client"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           fork me on GitHub
         </a>
-        | created by: &nbsp;
-        <a className="footerInfo" href="https://github.com">
+        &nbsp;| created by:&nbsp;
+        <a
+          className="footerInfo"
+          href="https://github.com/caldric"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Claude
         </a>
-        ,
-        <a className="footerInfo" href="https://github.com">
+        ,&nbsp;
+        <a
+          className="footerInfo"
+          href="https://github.com/spk2dc"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Senthil
         </a>
-        ,
-        <a className="footerInfo" href="https://github.com">
+        ,&nbsp;
+        <a
+          className="footerInfo"
+          href="https://github.com/likithaaa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Likitha
         </a>
       </p>

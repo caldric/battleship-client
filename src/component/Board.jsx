@@ -39,9 +39,11 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
 
         if (row === 0) {
           if (col === 0) {
-            squares.push(<Square />);
+            squares.push(<Square key={`square${row}x${col}`} />);
           } else {
-            squares.push(<Square content={currentColumn} />);
+            squares.push(
+              <Square key={`square${row}x${col}`} content={currentColumn} />
+            );
           }
         } else {
           // Get cell content
@@ -52,10 +54,13 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
           const cellValue = cellObject;
 
           if (col === 0) {
-            squares.push(<Square content={String(row)} />);
+            squares.push(
+              <Square key={`square${row}x${col}`} content={String(row)} />
+            );
           } else {
             squares.push(
               <Square
+                key={`square${row}x${col}`}
                 content={cellValue}
                 divId={`${currentColumn}${row}`}
                 clickHandler={clickHandler}

@@ -1,7 +1,6 @@
 // Imports
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { Nav, Navbar, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Component
@@ -35,7 +34,12 @@ const MainNav = ({ getSession, sessionUser }) => {
             <>
               <Nav.Link href="/profile">Profile</Nav.Link>
               <Nav.Link href="/new/game">New Game</Nav.Link>
-              <Button onClick={destroySession} type="button" href="/logout">
+              <Button
+                id="btnLogout"
+                onClick={destroySession}
+                type="button"
+                href="/logout"
+              >
                 Logout
               </Button>
             </>

@@ -2,6 +2,9 @@
 // React
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+// Bootstrap, import conflicts with current nav
+// import { Nav, Navbar, Button } from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 // Components
 import Error from './component/Error';
 import Footer from './component/Footer';
