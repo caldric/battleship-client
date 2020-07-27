@@ -5,15 +5,15 @@ import { Card, Button } from 'react-bootstrap';
 const AllShips = (props) => {
   const rotateSquare = (event) => {
     let parentElem = event.target.parentNode;
-    parentElem.childNodes[0].classList.toggle('rotate');
+    parentElem.childNodes[1].classList.toggle('rotate');
   };
 
   const placeShip = (event) => {
     event.preventDefault();
     let parentElem = event.target.parentNode;
-    let name = parentElem.childNodes[0].id;
+    let name = parentElem.childNodes[1].id;
 
-    let classes = parentElem.childNodes[0].className;
+    let classes = parentElem.childNodes[1].className;
     let rotate = classes.includes('rotate');
 
     let length = 0;
@@ -36,7 +36,11 @@ const AllShips = (props) => {
       default:
         break;
     }
-    // console.log(`placeShip`, { name: name, length: length, rotate: rotate });
+    console.log(`placeShip`, parentElem, {
+      name: name,
+      length: length,
+      rotate: rotate,
+    });
     props.setCurrShip({ name: name, length: length, rotate: rotate });
   };
 
