@@ -37,20 +37,26 @@ const Game = ({ apiURL }) => {
 
   // Render
   return (
-    <div>
+    <div className="text-center">
       <h1>The Game</h1>
-      <p>ENEMY SHIPS</p>
-      <p>Game ID: {gameID}</p>
-      <Board
-        state={game.board1}
-        enemyState={game.board2}
-        apiURL={apiURL}
-        board={'board1'}
-        gameID={game._id}
-        setGame={setGame}
-      />
-      <p>YOUR SHIPS</p>
-      <YourBoard currShip={currShip} />
+      <p>Game URL: {window.location.href}</p>
+      <div className="allBoards m-auto text-center">
+        <div className="boardContainer d-inline-block mx-3 my-2">
+          <p className="my-0 text-center">ENEMY SHIPS</p>
+          <Board
+            state={game.board1}
+            enemyState={game.board2}
+            apiURL={apiURL}
+            board={'board1'}
+            gameID={game._id}
+            setGame={setGame}
+          />
+        </div>
+        <div className="boardContainer d-inline-block mx-3 my-2">
+          <p className="my-0 text-center">YOUR SHIPS</p>
+          <YourBoard currShip={currShip} />
+        </div>
+      </div>
       <AllShips setCurrShip={setCurrShip} />
     </div>
   );

@@ -40,15 +40,17 @@ const AllShips = (props) => {
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center my-2">
       <div id="allships" className="allships">
-        <div className="shipContainer border border-info rounded m-2">
+        <div className="shipContainer border border-info rounded m-2 align-bottom">
           <Ship length={5} name={'carrier'} imgName={'/5.png'} />
-          <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
+          <button
+            className="btn btn-info m-2 align-bottom"
+            onClick={(e) => rotateSquare(e)}
+          >
             Rotate
           </button>
           <button
-            className="btn btn-info m-2"
             onClick={(e) => placeShip(e)}
             className={`place-carrier btn btn-info m-2`}
           >
@@ -56,54 +58,65 @@ const AllShips = (props) => {
           </button>
         </div>
 
-        <div className="shipContainer border border-info rounded m-2">
+        <div className="shipContainer border border-info rounded m-2 align-bottom">
           <Ship length={4} name={'battleship'} imgName={'/3.png'} />
-          <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
+          <button
+            className="btn btn-info m-2 align-bottom"
+            onClick={(e) => rotateSquare(e)}
+          >
             Rotate
           </button>
           <button
-            className="btn btn-info m-2"
             onClick={(e) => placeShip(e)}
-            className={`place-battleship btn btn-info m-2`}
+            className={`place-battleship btn btn-info m-2 align-bottom`}
           >
             Ready to place
           </button>
         </div>
 
-        <div className="shipContainer border border-info rounded m-2">
+        <div className="shipContainer border border-info rounded m-2 align-bottom">
           <Ship length={3} name={'cruiser'} imgName={'/2.png'} />
-          <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
+          <button
+            className="btn btn-info m-2 align-bottom"
+            onClick={(e) => rotateSquare(e)}
+          >
             Rotate
           </button>
           <button
             onClick={(e) => placeShip(e)}
-            className={`place-cruiser btn btn-info m-2`}
+            className={`place-cruiser btn btn-info m-2 align-bottom`}
           >
             Ready to place
           </button>
         </div>
 
-        <div className="shipContainer border border-info rounded m-2">
+        <div className="shipContainer border border-info rounded m-2 align-bottom">
           <Ship length={3} name={'submarine'} imgName={'/2.png'} />
-          <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
+          <button
+            className="btn btn-info m-2 align-bottom"
+            onClick={(e) => rotateSquare(e)}
+          >
             Rotate
           </button>
           <button
             onClick={(e) => placeShip(e)}
-            className={`place-submarine btn btn-info m-2`}
+            className={`place-submarine btn btn-info m-2 align-bottom`}
           >
             Ready to place
           </button>
         </div>
 
-        <div className="shipContainer border border-info rounded m-2">
+        <div className="shipContainer border border-info rounded m-2 align-bottom">
           <Ship length={2} name={'destroyer'} imgName={'/2.png'} />
-          <button className="btn btn-info m-2" onClick={(e) => rotateSquare(e)}>
+          <button
+            className="btn btn-info m-2 align-bottom"
+            onClick={(e) => rotateSquare(e)}
+          >
             Rotate
           </button>
           <button
             onClick={(e) => placeShip(e)}
-            className={`place-destroyer btn btn-info m-2`}
+            className={`place-destroyer btn btn-info m-2 align-bottom`}
           >
             Ready to place
           </button>
