@@ -23,6 +23,10 @@
 - Full CRUD functionality
 - Uses RESTful API
 
+
+![Wireframe](./public/wireframe.png)
+
+
 ## Known Bugs
 
 - Sign up does not automatically log in user
