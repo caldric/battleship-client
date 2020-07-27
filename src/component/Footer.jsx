@@ -14,19 +14,35 @@ const Footer = () => {
       variant="dark"
     >
       <p className="footer">
-        <a className="footerInfo gitHubLink" href="https://github.com">
+        <a
+          className="footerInfo gitHubLink"
+          href="https://github.com/caldric/battleship-client"
+          target="_blank"
+        >
           fork me on GitHub
         </a>
-        | created by: &nbsp;
-        <a className="footerInfo" href="https://github.com">
+        | created by:&nbsp;
+        <a
+          className="footerInfo"
+          href="https://github.com/caldric"
+          target="_blank"
+        >
           Claude
         </a>
-        ,
-        <a className="footerInfo" href="https://github.com">
+        ,&nbsp;
+        <a
+          className="footerInfo"
+          href="https://github.com/spk2dc"
+          target="_blank"
+        >
           Senthil
         </a>
-        ,
-        <a className="footerInfo" href="https://github.com">
+        ,&nbsp;
+        <a
+          className="footerInfo"
+          href="https://github.com/likithaaa"
+          target="_blank"
+        >
           Likitha
         </a>
       </p>
