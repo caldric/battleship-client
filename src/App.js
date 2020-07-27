@@ -44,7 +44,9 @@ const App = () => {
     <div>
       <Nav getSession={getSession} sessionUser={sessionUser} />
       <Switch>
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/">
+          <Landing getSession={getSession} sessionUser={sessionUser} />
+        </Route>
         <Route exact path="/signup">
           <Signup apiBaseURL={baseURL} />
         </Route>
