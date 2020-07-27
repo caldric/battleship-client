@@ -168,3 +168,8 @@ img {
 .allships {
   display: inline-block;
 }
+
+.login > input {
+  color: black;
+  margin-bottom: 15px;
+}
