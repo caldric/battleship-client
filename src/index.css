@@ -156,3 +156,7 @@ img {
 .allships {
   display: inline-block;
 }
+
+.login > input {
+  color: black;
+}

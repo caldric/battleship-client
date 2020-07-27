@@ -37,7 +37,7 @@ const Login = ({ apiBaseURL, getSession }) => {
   // Render
   if (redirect) return <Redirect to="/" />;
   return (
-    <form className="text-center m-4" onSubmit={submitForm}>
+    <form className="login text-center m-4" onSubmit={submitForm}>
       <label className="btn btn-outline-info m-2" htmlFor="username">
         Username
       </label>
