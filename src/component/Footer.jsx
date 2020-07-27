@@ -3,7 +3,7 @@ import React from 'react';
 
 // Component
 const Footer = () => {
-  return <footer>This is the footer</footer>;
+  return <footer className="fixed-bottom">This is the footer</footer>;
 };
 
 // Component export
