@@ -98,3 +98,21 @@ img {
 button {
   cursor: pointer;
 }
+
+.footer {
+  text-align: center;
+  margin: auto;
+}
+
+.footerInfo {
+  color: white;
+  text-decoration: underline;
+}
+
+.gitHubLink {
+  margin-right: 10px;
+}
+
+.footerInfo:hover {
+  color: rgb(82, 212, 255);
+}
