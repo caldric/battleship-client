@@ -60,7 +60,11 @@ const AllShips = (props) => {
             <Card className="cardContainer m-2 border border-info">
               <Card.Body>
                 <Card.Title>{val.name}</Card.Title>
-                <Ship length={val.length} name={val.name} imgName={'/5.png'} />
+                <Ship
+                  length={val.length}
+                  name={val.name}
+                  imgName={`/ship${val.length}.png`}
+                />
                 <Button
                   className="btn btn-sm btn-info m-2 align-bottom"
                   onClick={(e) => rotateSquare(e)}
