@@ -39,3 +39,11 @@
 - If you accidentally leave the game page you can't return to it unless you have the URL
 - Username has to be unique so you can't create an account if your desired name already exists
 - If sign up/login doesn't work there is no error message
+
+##### Authors/Developers:
+
+[Claude Aldric](https://github.com/caldric)
+[Senthil Kannan](https://github.com/spk2dc)
+[Likitha Duggirala](https://github.com/likithaaa)
+
+##### Last Updated: 7/27/2020
