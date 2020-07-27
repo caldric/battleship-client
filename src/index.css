@@ -108,11 +108,20 @@ div.ship2 {
   height: calc(var(--shipWidth) * 2);
 }
 
+img {
+  position: absolute;
+  transform: rotate(90deg);
+  top: 40%;
+  left: -198%;
+  z-index: 1;
+  width: 500%;
+}
+
 img.ship4 {
   width: 82px;
   position: absolute;
   transform: rotate(90deg);
-  top: 33%;
+  top: 39%;
   left: -155%;
   z-index: 1;
 }
@@ -128,12 +137,12 @@ img.ship3 {
 }
 
 img.ship2 {
-  width: 48px;
-  height: 29px;
+  width: 41px;
+  height: 21px;
   position: absolute;
   transform: rotate(90deg);
-  top: 15%;
-  left: -70%;
+  top: 24%;
+  left: -55%;
   z-index: 1;
 }
 
@@ -144,15 +153,6 @@ img.ship2 {
 .shipImgDiv {
   background-color: rgb(0, 157, 205);
   position: relative;
-}
-
-img {
-  position: absolute;
-  transform: rotate(90deg);
-  top: 40%;
-  left: -200%;
-  z-index: 1;
-  width: 500%;
 }
 
 .shipContainer {
