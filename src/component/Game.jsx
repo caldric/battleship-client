@@ -1,7 +1,9 @@
 // Imports
 // React
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
+// Bootstrap
+import { Button } from 'react-bootstrap';
 // Components
 import AllShips from './AllShips';
 import Board from './Board';
@@ -15,6 +17,7 @@ const Game = ({ apiURL }) => {
     length: 0,
     rotate: false,
   });
+  const [redirect, setRedirect] = useState(false);
 
   // Pull out parameter from URL
   const { gameID } = useParams();
@@ -35,11 +38,28 @@ const Game = ({ apiURL }) => {
     setGame(data);
   };
 
+  // Form submission handler
+  const deleteGame = async (event) => {
+    // Prevent page reload
+    event.preventDefault();
+
+    // Make post request to API
+    const url = `${apiURL}/games/${gameID}`;
+    await fetch(url, { method: 'DELETE' });
+
+    // Change redirect state to true in order to trigger redirect
+    setRedirect(true);
+  };
+
   // Render
+  if (redirect) return <Redirect to="/" />;
   return (
     <div className="text-center">
       <h1>The Game</h1>
       <p>Game URL: {window.location.href}</p>
+      <Button type="button" id="deleteGame" onClick={deleteGame}>
+        End Game
+      </Button>
       <div className="allBoards m-auto text-center">
         <div className="boardContainer d-inline-block mx-3 my-2">
           <p className="my-0 text-center">ENEMY SHIPS</p>
