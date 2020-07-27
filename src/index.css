@@ -169,7 +169,8 @@ img {
   display: inline-block;
 }
 
-.login > input {
+.login > input,
+.signup > input {
   color: black;
   margin-bottom: 15px;
 }

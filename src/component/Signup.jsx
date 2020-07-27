@@ -30,10 +30,9 @@ const Signup = ({ apiBaseURL }) => {
   // Render
   if (redirect) return <Redirect to="/" />;
   return (
-    <form className="text-center m-4" onSubmit={submitForm}>
-      <label className="btn btn-outline-info m-2" htmlFor="name">
-        Username
-      </label>
+    <form className="signup text-center m-4" onSubmit={submitForm}>
+      <label htmlFor="name">Username</label>
+      <br />
       <input
         type="text"
         name="name"
@@ -41,10 +40,9 @@ const Signup = ({ apiBaseURL }) => {
         value={username}
         onChange={(event) => setUsername(event.currentTarget.value)}
       />
-      <br /> {/* TO-DO: DELETE AFTER CSS */}
-      <label className="btn btn-outline-info m-2" htmlFor="password">
-        Password
-      </label>
+      <br />
+      <label htmlFor="password">Password</label>
+      <br />
       <input
         type="password"
         name="password"
@@ -52,8 +50,8 @@ const Signup = ({ apiBaseURL }) => {
         value={password}
         onChange={(event) => setPassword(event.currentTarget.value)}
       />
-      <br /> {/* TO-DO: DELETE AFTER CSS */}
-      <button className="btn btn-outline-info m-2" type="submit">
+      <br />
+      <button className="btn btn-primary m-2" type="submit">
         Sign up
       </button>
     </form>
