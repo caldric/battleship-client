@@ -32,4 +32,5 @@
 - Your ships can be placed more than once
 - Your ships can overlap
 - Ships don't display when placed, only representational X's
-- Rotating a ship and then cl
+- When placing ships, if you rotate it you must click place again for the direction to actually change when placed
+- Game does not end unless you click end game
