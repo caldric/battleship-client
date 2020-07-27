@@ -2,7 +2,7 @@
 
 [Click here to play on the live site](https://playbattleship.herokuapp.com/)
 
-[Battleship Back End](https://github.com/caldric/battleship-api/)
+[GitHub Back End Repository](https://github.com/caldric/battleship-api/)
 
 ## Technologies
 
@@ -34,3 +34,8 @@
 - Ships don't display when placed, only representational X's
 - When placing ships, if you rotate it you must click place again for the direction to actually change when placed
 - Game does not end unless you click end game
+- Games can be accessed publicly if you have the URL
+- You can only play against the computer, not friends (if you have ones to play with)
+- If you accidentally leave the game page you can't return to it unless you have the URL
+- Username has to be unique so you can't create an account if your desired name already exists
+- If sign up/login doesn't work there is no error message
