@@ -7,7 +7,11 @@ const Ship = (props) => {
   const displaySquares = () => {
     const squares = [];
     for (let i = 0; i < props.length; i++) {
-      squares.push(<Square />);
+      squares.push(
+        <Square
+          key={`square${i} ${props.imgName}${props.name}${props.length}`}
+        />
+      );
     }
     return squares;
   };
@@ -15,10 +19,16 @@ const Ship = (props) => {
   // Render
   return (
     <div
+      key={`${props.name}${props.length}`}
       id={`${props.name}`}
-      className={`image ships ship${props.length} align-bottom`}
+      className={`shipImgDiv ships ship${props.length} align-bottom`}
     >
-      <img className={`ship${props.length}`} src={props.imgName} alt="" />
+      <img
+        key={`${props.name}${props.length} img`}
+        className={`ship${props.length}`}
+        src={props.imgName}
+        alt=""
+      />
       {displaySquares().map((val, i) => {
         return val;
       })}

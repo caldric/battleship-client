@@ -127,7 +127,7 @@ img.ship2 {
   transform: rotate(90deg);
 }
 
-.image {
+.shipImgDiv {
   background-color: rgb(0, 157, 205);
   position: relative;
 }
