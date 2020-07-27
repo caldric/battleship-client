@@ -6,8 +6,17 @@
   --shipWidth: 20px;
 }
 
-body {
+* {
   font-family: 'Space Mono', monospace;
+  color: white;
+}
+
+body {
+  background-image: url('/bubbles.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 code {
@@ -25,7 +34,7 @@ code {
 }
 
 .square {
-  border: 1px solid black;
+  border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,4 +97,22 @@ img {
 .square.clickable,
 button {
   cursor: pointer;
+}
+
+.footer {
+  text-align: center;
+  margin: auto;
+}
+
+.footerInfo {
+  color: white;
+  text-decoration: underline;
+}
+
+.gitHubLink {
+  margin-right: 10px;
+}
+
+.footerInfo:hover {
+  color: rgb(82, 212, 255);
 }

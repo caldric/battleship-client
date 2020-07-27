@@ -37,8 +37,10 @@ const Login = ({ apiBaseURL, getSession }) => {
   // Render
   if (redirect) return <Redirect to="/" />;
   return (
-    <form onSubmit={submitForm}>
-      <label htmlFor="username">Username</label>
+    <form className="text-center m-4" onSubmit={submitForm}>
+      <label className="btn btn-outline-info m-2" htmlFor="username">
+        Username
+      </label>
       <input
         type="text"
         id="username"
@@ -49,7 +51,9 @@ const Login = ({ apiBaseURL, getSession }) => {
         }}
       />
       <br />
-      <label htmlFor="password">Password</label>
+      <label className="btn btn-outline-info m-2" htmlFor="password">
+        Password
+      </label>
       <input
         type="password"
         id="password"
@@ -58,7 +62,9 @@ const Login = ({ apiBaseURL, getSession }) => {
         onChange={(event) => setPassword(event.currentTarget.value)}
       />
       <br />
-      <button type="submit">Login</button>
+      <button className="btn btn-outline-info m-2" type="submit">
+        Login
+      </button>
     </form>
   );
 };
