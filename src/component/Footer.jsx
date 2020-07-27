@@ -18,6 +18,7 @@ const Footer = () => {
           className="footerInfo gitHubLink"
           href="https://github.com/caldric/battleship-client"
           target="_blank"
+          rel="noopener noreferrer"
         >
           fork me on GitHub
         </a>
@@ -26,6 +27,7 @@ const Footer = () => {
           className="footerInfo"
           href="https://github.com/caldric"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Claude
         </a>
@@ -34,6 +36,7 @@ const Footer = () => {
           className="footerInfo"
           href="https://github.com/spk2dc"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Senthil
         </a>
@@ -42,6 +45,7 @@ const Footer = () => {
           className="footerInfo"
           href="https://github.com/likithaaa"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Likitha
         </a>
