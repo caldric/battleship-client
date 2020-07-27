@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Ship from './Ship';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, CardDeck } from 'react-bootstrap';
 
 const AllShips = (props) => {
   const [shipOptions, setshipOptions] = useState([
@@ -55,32 +55,34 @@ const AllShips = (props) => {
   return (
     <div className="text-center my-2">
       <div id="allships" className="allships">
-        {shipOptions.map((val, i) => {
-          return (
-            <Card className="cardContainer m-2 border border-info">
-              <Card.Body>
-                <Card.Title>{val.name}</Card.Title>
-                <Ship
-                  length={val.length}
-                  name={val.name}
-                  imgName={`/ship${val.length}.png`}
-                />
-                <Button
-                  className="btn btn-sm btn-info m-2 align-bottom"
-                  onClick={(e) => rotateSquare(e)}
-                >
-                  Rotate
-                </Button>
-                <Button
-                  onClick={(e) => placeShip(e)}
-                  className={`place-carrier btn btn-sm btn-info m-2`}
-                >
-                  Ready to place
-                </Button>
-              </Card.Body>
-            </Card>
-          );
-        })}
+        <CardDeck>
+          {shipOptions.map((val, i) => {
+            return (
+              <Card className="cardContainer m-2 border border-info">
+                <Card.Body>
+                  <Card.Title>{val.name}</Card.Title>
+                  <Ship
+                    length={val.length}
+                    name={val.name}
+                    imgName={`/ship${val.length}.png`}
+                  />
+                  <Button
+                    className="btn btn-sm btn-info m-2 align-bottom"
+                    onClick={(e) => rotateSquare(e)}
+                  >
+                    Rotate
+                  </Button>
+                  <Button
+                    onClick={(e) => placeShip(e)}
+                    className={`place-carrier btn btn-sm btn-info m-2`}
+                  >
+                    Ready to place
+                  </Button>
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </CardDeck>
       </div>
     </div>
   );
