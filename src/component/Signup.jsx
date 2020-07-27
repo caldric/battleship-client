@@ -31,9 +31,7 @@ const Signup = ({ apiBaseURL }) => {
   if (redirect) return <Redirect to="/" />;
   return (
     <form className="signup text-center m-4" onSubmit={submitForm}>
-      <label className="btn btn-outline-info m-2" htmlFor="name">
-        Username
-      </label>
+      <label htmlFor="name">Username</label>
       <input
         type="text"
         name="name"
@@ -42,9 +40,7 @@ const Signup = ({ apiBaseURL }) => {
         onChange={(event) => setUsername(event.currentTarget.value)}
       />
       <br /> {/* TO-DO: DELETE AFTER CSS */}
-      <label className="btn btn-outline-info m-2" htmlFor="password">
-        Password
-      </label>
+      <label htmlFor="password">Password</label>
       <input
         type="password"
         name="password"
