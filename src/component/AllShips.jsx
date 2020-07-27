@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Ship from './Ship';
 import { Card, Button } from 'react-bootstrap';
 
 const AllShips = (props) => {
+  const [shipOptions, setshipOptions] = useState([
+    { name: 'carrier', length: 5 },
+    { name: 'battleship', length: 4 },
+    { name: 'cruiser', length: 3 },
+    { name: 'submarine', length: 3 },
+    { name: 'destroyer', length: 2 },
+  ]);
+
   const rotateSquare = (event) => {
     let parentElem = event.target.parentNode;
     parentElem.childNodes[1].classList.toggle('rotate');
@@ -36,116 +44,39 @@ const AllShips = (props) => {
       default:
         break;
     }
-    console.log(`placeShip`, parentElem, {
-      name: name,
-      length: length,
-      rotate: rotate,
-    });
+    // console.log(`placeShip`, parentElem, {
+    //   name: name,
+    //   length: length,
+    //   rotate: rotate,
+    // });
     props.setCurrShip({ name: name, length: length, rotate: rotate });
   };
 
   return (
     <div className="text-center my-2">
       <div id="allships" className="allships">
-        <Card className="cardContainer m-2 border border-info">
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Carrier</Card.Title>
-            <Ship length={5} name={'carrier'} imgName={'/5.png'} />
-            <Button
-              className="btn btn-sm btn-info m-2 align-bottom"
-              onClick={(e) => rotateSquare(e)}
-            >
-              Rotate
-            </Button>
-            <Button
-              onClick={(e) => placeShip(e)}
-              className={`place-carrier btn btn-sm btn-info m-2`}
-            >
-              Ready to place
-            </Button>
-          </Card.Body>
-        </Card>
-
-        <div className="shipContainer border border-info rounded m-2 align-bottom">
-          <Ship length={5} name={'carrier'} imgName={'/5.png'} />
-          <button
-            className="btn btn-sm btn-info m-2 align-bottom"
-            onClick={(e) => rotateSquare(e)}
-          >
-            Rotate
-          </button>
-          <button
-            onClick={(e) => placeShip(e)}
-            className={`place-carrier btn btn-sm btn-info m-2`}
-          >
-            Ready to place
-          </button>
-        </div>
-
-        <div className="shipContainer border border-info rounded m-2 align-bottom">
-          <Ship length={4} name={'battleship'} imgName={'/3.png'} />
-          <button
-            className="btn btn-sm btn-info m-2 align-bottom"
-            onClick={(e) => rotateSquare(e)}
-          >
-            Rotate
-          </button>
-          <button
-            onClick={(e) => placeShip(e)}
-            className={`place-battleship btn btn-sm btn-info m-2 align-bottom`}
-          >
-            Ready to place
-          </button>
-        </div>
-
-        <div className="shipContainer border border-info rounded m-2 align-bottom">
-          <Ship length={3} name={'cruiser'} imgName={'/2.png'} />
-          <button
-            className="btn btn-sm btn-info m-2 align-bottom"
-            onClick={(e) => rotateSquare(e)}
-          >
-            Rotate
-          </button>
-          <button
-            onClick={(e) => placeShip(e)}
-            className={`place-cruiser btn btn-sm btn-info m-2 align-bottom`}
-          >
-            Ready to place
-          </button>
-        </div>
-
-        <div className="shipContainer border border-info rounded m-2 align-bottom">
-          <Ship length={3} name={'submarine'} imgName={'/2.png'} />
-          <button
-            className="btn btn-sm btn-info m-2 align-bottom"
-            onClick={(e) => rotateSquare(e)}
-          >
-            Rotate
-          </button>
-          <button
-            onClick={(e) => placeShip(e)}
-            className={`place-submarine btn btn-sm btn-info m-2 align-bottom`}
-          >
-            Ready to place
-          </button>
-        </div>
-
-        <div className="shipContainer border border-info rounded m-2 align-bottom">
-          <Ship length={2} name={'destroyer'} imgName={'/2.png'} />
-          <button
-            className="btn btn-sm btn-info m-2 align-bottom"
-            onClick={(e) => rotateSquare(e)}
-          >
-            Rotate
-          </button>
-          <button
-            onClick={(e) => placeShip(e)}
-            className={`place-destroyer btn btn-sm btn-info m-2 align-bottom`}
-          >
-            Ready to place
-          </button>
-        </div>
+        {shipOptions.map((val, i) => {
+          return (
+            <Card className="cardContainer m-2 border border-info">
+              <Card.Body>
+                <Card.Title>{val.name}</Card.Title>
+                <Ship length={val.length} name={val.name} imgName={'/5.png'} />
+                <Button
+                  className="btn btn-sm btn-info m-2 align-bottom"
+                  onClick={(e) => rotateSquare(e)}
+                >
+                  Rotate
+                </Button>
+                <Button
+                  onClick={(e) => placeShip(e)}
+                  className={`place-carrier btn btn-sm btn-info m-2`}
+                >
+                  Ready to place
+                </Button>
+              </Card.Body>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
