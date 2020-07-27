@@ -32,6 +32,7 @@ const Signup = ({ apiBaseURL }) => {
   return (
     <form className="signup text-center m-4" onSubmit={submitForm}>
       <label htmlFor="name">Username</label>
+      <br />
       <input
         type="text"
         name="name"
@@ -39,8 +40,9 @@ const Signup = ({ apiBaseURL }) => {
         value={username}
         onChange={(event) => setUsername(event.currentTarget.value)}
       />
-      <br /> {/* TO-DO: DELETE AFTER CSS */}
+      <br />
       <label htmlFor="password">Password</label>
+      <br />
       <input
         type="password"
         name="password"
@@ -48,7 +50,7 @@ const Signup = ({ apiBaseURL }) => {
         value={password}
         onChange={(event) => setPassword(event.currentTarget.value)}
       />
-      <br /> {/* TO-DO: DELETE AFTER CSS */}
+      <br />
       <button className="btn btn-primary m-2" type="submit">
         Sign up
       </button>
