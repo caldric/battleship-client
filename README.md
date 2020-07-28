@@ -1,33 +1,41 @@
-# [Battleship Game](https://playbattleship.herokuapp.com/)
+# Battleship Game
 
-[Click here to play on the live site](https://playbattleship.herokuapp.com/)
+## Links
 
-[GitHub Back End Repository](https://github.com/caldric/battleship-api/)
+- [Live site on Heroku](https://playbattleship.herokuapp.com/)
+- [Back end GitHub repository](https://github.com/caldric/battleship-api/)
 
 ## Technologies
 
-- MERN Stack (Mongo, Express, React, Node)
+- MERN stack (Mongo, Express, React, Node)
 - HTML
 - CSS
 - JavaScript
-- Bcrypt
-- Heroku Cloud Platform for Live Site
 
 ## Features
 
 - Event listeners and handlers
 - Document Object Model (DOM) manipulation
 - Asynchronous JavaScript with async and await
-- User Information storage and password encryption
-- User sign up/ log in functionality
+- User information storage and password encryption using Bcrypt
+- User sign up and log in functionality
 - Full CRUD functionality
-- Uses RESTful API
+- RESTful API
 
+## Wireframe
 
 ![Wireframe](./public/wireframe.png)
 
+## Approach
 
-## Known Bugs
+Our team took an Agile approach.
+
+- Daily standups
+- Retrospectives
+- Sprint planning
+- Sprint review
+
+## Known Issues
 
 - Sign up does not automatically log in user
 - Profile does not keep track of user statistics
@@ -46,8 +54,8 @@
 
 ##### Authors/Developers:
 
-[Claude Aldric](https://github.com/caldric)
-[Senthil Kannan](https://github.com/spk2dc)
+[Claude Aldric](https://github.com/caldric),
+[Senthil Kannan](https://github.com/spk2dc),
 [Likitha Duggirala](https://github.com/likithaaa)
 
-##### Last Updated: 7/27/2020
+##### Last Updated: 7/28/2020
