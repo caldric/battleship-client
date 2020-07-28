@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Battleship** is a clone of the strategy game, [Battleship](<https://en.wikipedia.org/wiki/Battleship_(game)>), of the same name.
+**Battleship** is a clone of the strategy game [Battleship](<https://en.wikipedia.org/wiki/Battleship_(game)>).
 
 ## Links
 
