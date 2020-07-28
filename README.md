@@ -50,15 +50,20 @@
 
 ## Approach
 
-### Development Framework
+### Overview
 
 Our team adopted the Agile Scrum methodology. As we only had a week in order to complete the project, we wanted a workflow that was both incremental and iterative. From Scrum, we integrated sprint planning, sprints, daily scrums/stand-ups, sprint reviews, and sprint retrospectives into our workflow.
+
+In our kanban board, we had the "TO DO", "IN PROGRESS", "CHANGES REQUESTED", "CODE REVIEW", and "DONE" cards. Once the sprint starts, the backlog issues assigned to the particular sprint goes to TO-DO. The developer then self-assigns one of the issues, makes a feature branch in Git, and the issue moves to IN PROGRESS. After the particular issue is resolved, the developer submits a pull request (PR) to the repository, and the issue moves to CODE REVIEW where another developer does a functional test and a code review. If there are any changes that need to be made on the PR, the reviewer annotates the specific lines of code that need to be resolved, and the issue moves back to CHANGES REQUESTED. Otherwise, the reviewer approves the PR, merges the feature branch onto the master branch, and the issue is moved onto DONE.
 
 ### Tools
 
 - Project management: Jira
 - Version control: Git, GitHub
 - Communication: Slack, Zoom, Google Hangouts
+- Code editor: Visual Studio Code
+- Formatter: Prettier
+- Linter: ESLint
 
 ### Cumulative Flow Chart
 
