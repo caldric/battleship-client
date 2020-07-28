@@ -28,14 +28,14 @@
 
 ## User Stories
 
-- As a user, I'd like the sign up and login buttons disabled when I'm logged in.
-- As a user, I'd like to get some feedback on UI elements that I can interact with.
-- As a developer, I'd like games to be deleted upon completion or when leaving game so that the database does not store unneeded data.
-- As a user, I want to be able to create a game.
-- As a user, I want to be able to make "shots" against my opponent.
-- As a user, I want to be able to put my pieces on the board.
 - As a developer, I'd like to have the concurrently package installed so that I don't need to run the API server and the client build separately.
 - As a user, I want to be able to log in.
+- As a user, I'd like the sign up and login buttons disabled when I'm logged in.
+- As a user, I want to be able to create a game.
+- As a developer, I'd like games to be deleted upon completion or when leaving game so that the database does not store unneeded data.
+- As a user, I want to be able to put my pieces on the board.
+- As a user, I want to be able to make "shots" against my opponent.
+- As a user, I'd like to get some feedback on UI elements that I can interact with.
 
 ## Approach
 
