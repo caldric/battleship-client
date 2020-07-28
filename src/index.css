@@ -44,6 +44,17 @@ code {
   max-width: 90px;
 }
 
+#favicon {
+  left: 8px;
+  top: 3px;
+  width: 40px;
+  transform: rotate(0deg);
+}
+
+#nav-title {
+  margin-left: 40px;
+}
+
 /*******************************************************/
 /****************** GAME PAGE STYLING ******************/
 /*******************************************************/

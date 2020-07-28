@@ -24,7 +24,11 @@ const MainNav = ({ getSession, sessionUser }) => {
       variant="dark"
       className="fixed-top"
     >
-      <Navbar.Brand href="/">Battleship</Navbar.Brand>
+      <img id="favicon" src="/favicon.ico" alt="" />
+
+      <Navbar.Brand id="nav-title" href="/">
+        Battleship
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
