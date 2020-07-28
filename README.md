@@ -40,6 +40,12 @@
 - As a user, I want to be able to put my pieces on the board.
 - As a user, I want to be able to make "shots" against my opponent.
 - As a user, I'd like to get some feedback on UI elements that I can interact with.
+- As a user, I'd like to be able to login automatically after I sign up.
+- As a user, I'd like to know when I have sunk a ship.
+- As a user, I'd like to have the enemy computer pick a random coordinate to attack.
+- As a user, I want to track my lifetime stats: total games, wins, and losses.
+- As a user, I want to send a link to play with a specific person.
+- As a user, I want to queue a game with other random players.
 
 ## Approach
 
