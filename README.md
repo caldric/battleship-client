@@ -1,33 +1,71 @@
-# [Battleship Game](https://playbattleship.herokuapp.com/)
+# Battleship
 
-[Click here to play on the live site](https://playbattleship.herokuapp.com/)
+**Battleship** is a clone of the strategy game [Battleship](<https://en.wikipedia.org/wiki/Battleship_(game)>).
 
-[GitHub Back End Repository](https://github.com/caldric/battleship-api/)
+## Links
+
+- [Live site on Heroku](https://playbattleship.herokuapp.com/)
+- [Back end GitHub repository](https://github.com/caldric/battleship-api/)
 
 ## Technologies
 
-- MERN Stack (Mongo, Express, React, Node)
+- MERN stack (Mongo, Express, React, Node)
 - HTML
 - CSS
+- Bootstrap
 - JavaScript
-- Bcrypt
-- Heroku Cloud Platform for Live Site
 
 ## Features
 
 - Event listeners and handlers
 - Document Object Model (DOM) manipulation
 - Asynchronous JavaScript with async and await
-- User Information storage and password encryption
-- User sign up/ log in functionality
+- User information storage and password encryption using Bcrypt
+- User sign up and log in functionality
 - Full CRUD functionality
-- Uses RESTful API
+- RESTful API
 
+## Wireframe
 
 ![Wireframe](./public/wireframe.png)
 
+## User Stories
 
-## Known Bugs
+- As a developer, I'd like to have the concurrently package installed so that I don't need to run the API server and the client build separately.
+- As a user, I want to be able to log in.
+- As a user, I'd like the sign up and login buttons disabled when I'm logged in.
+- As a user, I want to be able to create a game.
+- As a developer, I'd like games to be deleted upon completion or when leaving game so that the database does not store unneeded data.
+- As a user, I want to be able to put my pieces on the board.
+- As a user, I want to be able to make "shots" against my opponent.
+- As a user, I'd like to get some feedback on UI elements that I can interact with.
+- As a user, I'd like to be able to login automatically after I sign up.
+- As a user, I'd like to know when I have sunk a ship.
+- As a user, I'd like to have the enemy computer pick a random coordinate to attack.
+- As a user, I want to track my lifetime stats: total games, wins, and losses.
+- As a user, I want to send a link to play with a specific person.
+- As a user, I want to queue a game with other random players.
+
+## Approach
+
+Our team adopted the Agile Scrum methodology. As we only had a week to complete the project, we wanted a workflow that was both incremental and iterative. From Scrum, we integrated sprint planning, sprints, daily scrums/stand-ups, sprint reviews, and sprint retrospectives into our workflow.
+
+In our kanban board, we had the "TO DO", "IN PROGRESS", "CHANGES REQUESTED", "CODE REVIEW", and "DONE" cards. Once the sprint starts, the backlog issues assigned to the particular sprint goes to TO-DO. The developer then self-assigns one of the issues, makes a feature branch in Git, and the issue moves to IN PROGRESS. After the particular issue is resolved, the developer submits a pull request (PR) to the repository, and the issue moves to CODE REVIEW where another developer does a functional test and a code review. If there are any changes that need to be made on the PR, the reviewer annotates the specific lines of code that need to be resolved, and the issue moves back to CHANGES REQUESTED. Otherwise, the reviewer approves the PR, merges the feature branch onto the master branch, and the issue is moved onto DONE.
+
+### Tools
+
+- Project management: Jira
+- Version control: Git, GitHub
+- Communication: Slack, Zoom, Google Hangouts
+- Code editor: Visual Studio Code
+- Formatter: Prettier
+- Linter: ESLint
+
+### Cumulative Flow Chart
+
+![Wireframe](./public/cumulative_flow.png)
+
+## Known Issues
 
 - Sign up does not automatically log in user
 - Profile does not keep track of user statistics
@@ -46,8 +84,8 @@
 
 ##### Authors/Developers:
 
-[Claude Aldric](https://github.com/caldric)
-[Senthil Kannan](https://github.com/spk2dc)
+[Claude Aldric](https://github.com/caldric),
+[Senthil Kannan](https://github.com/spk2dc),
 [Likitha Duggirala](https://github.com/likithaaa)
 
-##### Last Updated: 7/27/2020
+##### Last Updated: 7/28/2020
