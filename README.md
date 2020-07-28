@@ -47,15 +47,6 @@
 - As a user, I want to send a link to play with a specific person.
 - As a user, I want to queue a game with other random players.
 
-## Approach
-
-Our team took an Agile approach.
-
-- Daily standups
-- Retrospectives
-- Sprint planning
-- Sprint review
-
 ## Known Issues
 
 - Sign up does not automatically log in user
