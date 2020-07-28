@@ -14,6 +14,7 @@
 - MERN stack (Mongo, Express, React, Node)
 - HTML
 - CSS
+- Bootstrap
 - JavaScript
 
 ## Features
@@ -46,6 +47,22 @@
 - As a user, I want to track my lifetime stats: total games, wins, and losses.
 - As a user, I want to send a link to play with a specific person.
 - As a user, I want to queue a game with other random players.
+
+## Approach
+
+### Development Framework
+
+Our team adopted the Agile Scrum methodology. As we only had a week in order to complete the project, we wanted a workflow that was both incremental and iterative. From Scrum, we integrated sprint planning, sprints, daily scrums/stand-ups, sprint reviews, and sprint retrospectives into our workflow.
+
+### Tools
+
+- Project management: Jira
+- Version control: Git, GitHub
+- Communication: Slack, Zoom, Google Hangouts
+
+### Cumulative Flow Chart
+
+![Wireframe](./public/cumulative_flow.png)
 
 ## Known Issues
 
