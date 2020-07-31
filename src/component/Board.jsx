@@ -29,6 +29,12 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
     setGame(data);
   };
 
+  const enemyRandomAttack = () => {
+    let row = Math.floor(Math.random() * 10);
+    let col = Math.floor(Math.random() * 10);
+    state;
+  };
+
   // Generate 10x10 board with labels
   const generateBoard = () => {
     const squares = [];
