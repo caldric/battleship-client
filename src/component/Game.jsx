@@ -14,6 +14,7 @@ const Game = ({ apiURL }) => {
   const [game, setGame] = useState({
     enemyBoardVisible: {},
     enemyBoardState: {},
+    userBoard: {},
   });
   const [currShip, setCurrShip] = useState({
     name: '',
@@ -61,14 +62,14 @@ const Game = ({ apiURL }) => {
     let rowCoordinate = Math.floor(Math.random() * 10 + 1);
 
     // Get the result of the user's coordinates
-    const userCheck = game.enemyBoardVisible[columnCoordinate][rowCoordinate];
+    const userCheck = game.userBoard[columnCoordinate][rowCoordinate];
 
     // Make put request
     const url = `${apiURL}/games/${gameID}`;
     const playerMark = userCheck ? 'H' : 'M';
     const config = {
       method: 'PUT',
-      body: `{"enemyBoardVisible.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
+      body: `{"userBoard.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
       headers: { 'Content-Type': 'application/json' },
     };
     const response = await fetch(url, config);
@@ -76,8 +77,11 @@ const Game = ({ apiURL }) => {
 
     // Change states
     setGame(data);
-    console.log(`enemyRandomAttack -> state`, game.enemyBoardVisible);
-    console.log(`enemyRandomAttack -> enemyState`, game.enemyBoardState);
+    console.log(
+      `{"userBoard.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
+      game.userBoard
+    );
+    // console.log(`enemyRandomAttack -> enemyState`, game.enemyBoardState);
   };
 
   // Render
