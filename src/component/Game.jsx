@@ -11,7 +11,10 @@ import YourBoard from './YourBoard';
 
 const Game = ({ apiURL }) => {
   // State Hook
-  const [game, setGame] = useState({ board1: {}, board2: {} });
+  const [game, setGame] = useState({
+    enemyBoardVisible: {},
+    enemyBoardState: {},
+  });
   const [currShip, setCurrShip] = useState({
     name: '',
     length: 0,
@@ -58,14 +61,14 @@ const Game = ({ apiURL }) => {
     let rowCoordinate = Math.floor(Math.random() * 10 + 1);
 
     // Get the result of the user's coordinates
-    const userCheck = game.board1[columnCoordinate][rowCoordinate];
+    const userCheck = game.enemyBoardVisible[columnCoordinate][rowCoordinate];
 
     // Make put request
     const url = `${apiURL}/games/${gameID}`;
     const playerMark = userCheck ? 'H' : 'M';
     const config = {
       method: 'PUT',
-      body: `{"board1.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
+      body: `{"enemyBoardVisible.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
       headers: { 'Content-Type': 'application/json' },
     };
     const response = await fetch(url, config);
@@ -73,8 +76,8 @@ const Game = ({ apiURL }) => {
 
     // Change states
     setGame(data);
-    console.log(`enemyRandomAttack -> state`, game.board1);
-    console.log(`enemyRandomAttack -> enemyState`, game.board2);
+    console.log(`enemyRandomAttack -> state`, game.enemyBoardVisible);
+    console.log(`enemyRandomAttack -> enemyState`, game.enemyBoardState);
   };
 
   // Render
@@ -95,10 +98,10 @@ const Game = ({ apiURL }) => {
         <div className="boardContainer d-inline-block mx-3 my-2">
           <p className="my-0 text-center">ENEMY SHIPS</p>
           <Board
-            state={game.board1}
-            enemyState={game.board2}
+            state={game.enemyBoardVisible}
+            enemyState={game.enemyBoardState}
             apiURL={apiURL}
-            board={'board1'}
+            board={'enemyBoardVisible'}
             gameID={game._id}
             setGame={setGame}
             enemyRandomAttack={enemyRandomAttack}
