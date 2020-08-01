@@ -67,7 +67,6 @@ In our kanban board, we had the "TO DO", "IN PROGRESS", "CHANGES REQUESTED", "CO
 
 ## Known Issues
 
-- Sign up does not automatically log in user
 - Profile does not keep track of user statistics
 - No indication when a enemy ship is sunk, only when you hit/miss
 - Randomly generated enemy ships can potentially overlap
