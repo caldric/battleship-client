@@ -29,10 +29,26 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
     setGame(data);
   };
 
-  const enemyRandomAttack = () => {
-    let row = Math.floor(Math.random() * 10);
-    let col = Math.floor(Math.random() * 10);
-    state;
+  const enemyRandomAttack = async () => {
+    let rowCoordinate = Math.floor(Math.random() * 10);
+    let columnCoordinate = Math.floor(Math.random() * 10);
+
+    // Get the result of the user's coordinates
+    const userCheck = state[columnCoordinate][rowCoordinate];
+
+    // Make put request
+    const url = `${apiURL}/games/${gameID}`;
+    const playerMark = userCheck ? 'H' : 'M';
+    const config = {
+      method: 'PUT',
+      body: `{"${board}.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
+      headers: { 'Content-Type': 'application/json' },
+    };
+    const response = await fetch(url, config);
+    const data = await response.json();
+
+    // Change states
+    setGame(data);
   };
 
   // Generate 10x10 board with labels
