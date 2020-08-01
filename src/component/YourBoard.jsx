@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Square from './Square';
 
-const YourBoard = ({ currShip, userBoard, setGame }) => {
+const YourBoard = ({ apiURL, gameID, currShip, userBoard, setGame }) => {
   // State Hooks
   // Initialize board to a 10x10 array of blank strings ('')
   const arrOfBlankStrings = JSON.parse(
@@ -23,24 +23,37 @@ const YourBoard = ({ currShip, userBoard, setGame }) => {
   };
 
   // Event handlers
-  const clickHandler = (event) => {
+  const clickHandler = async (event) => {
     // Coordinates of clicked square
     const coordinates = event.currentTarget.id;
-    const [rowIndex, columnIndex] = convertCoordsToIndices(coordinates);
+    const columnCoordinate = coordinates[0];
+    const rowCoordinate = coordinates.split('-')[0].slice(1);
+
+    // Make put request
+    const url = `${apiURL}/games/${gameID}`;
+    const config = {
+      method: 'PUT',
+      body: `{"userBoard.${columnCoordinate}.${rowCoordinate}":"${currShip.name}"}`,
+      headers: { 'Content-Type': 'application/json' },
+    };
+    const response = await fetch(url, config);
+    const data = await response.json();
 
     // Change board state
     const newBoard = [...userBoard];
     if (!currShip.rotate) {
       for (let i = 0; i < currShip.length; i++) {
-        newBoard[rowIndex + i][columnIndex] = 'X';
+        newBoard[rowCoordinate + i][columnCoordinate] = 'X';
       }
     } else {
       for (let i = 0; i < currShip.length; i++) {
-        newBoard[rowIndex][columnIndex + i] = 'X';
+        newBoard[rowCoordinate][columnCoordinate + i] = 'X';
       }
     }
     setGame(newBoard);
 
+    // Change states
+    setGame(data);
     // <Ship length={currShip.length} name={currShip.name} />;
   };
 
@@ -77,7 +90,7 @@ const YourBoard = ({ currShip, userBoard, setGame }) => {
               <Square
                 key={`yourSquare${row}x${col}`}
                 content={cellValue}
-                divId={`${currentColumn}${row}`}
+                divId={`${currentColumn}${row}-user`}
                 clickHandler={clickHandler}
                 className={`clickable col-${currentColumn} row-${row}`}
               />

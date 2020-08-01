@@ -114,6 +114,8 @@ const Game = ({ apiURL }) => {
         <div className="boardContainer d-inline-block mx-3 my-2">
           <p className="my-0 text-center">YOUR SHIPS</p>
           <YourBoard
+            apiURL={apiURL}
+            gameID={game._id}
             currShip={currShip}
             userBoard={game.userBoard}
             setGame={setGame}
