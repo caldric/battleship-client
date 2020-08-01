@@ -28,23 +28,17 @@ const YourBoard = ({ apiURL, gameID, currShip, userBoard, setGame }) => {
     for (let i = 0; i < currShip.length; i++) {
       // convert column letter to number in order to increment it and then convert it back to a letter for new column
       const colLetter = String.fromCharCode(
-        columnCoordinate.charCodeAt(0) + isHoriz
+        columnCoordinate.charCodeAt(0) + isHoriz * i
       );
       // Format key in way that is readable for backend Mongo database
       const boardKeyName = `userBoard.${colLetter}.${
-        parseInt(rowCoordinate, 10) + isVert
+        parseInt(rowCoordinate, 10) + isVert * i
       }`;
-      console.log(
-        `yourboard -> boardKeyName`,
-        boardKeyName,
-        colLetter,
-        parseInt(rowCoordinate, 10) + isVert
-      );
-      // Set object value as first 2 characters of ship name to show up on board
-      placedShip[boardKeyName] = currShip.name.substr(0, 2);
+      // Set object value as first 2 characters of ship name to show up on board. If there are overlapping locations then append them.
+      placedShip[boardKeyName]
+        ? (placedShip[boardKeyName] += ',' + currShip.name.substr(0, 2))
+        : (placedShip[boardKeyName] = currShip.name.substr(0, 2));
     }
-
-    console.log(`yourboard -> placedShip`, placedShip);
 
     // Make put request
     const url = `${apiURL}/games/${gameID}`;
