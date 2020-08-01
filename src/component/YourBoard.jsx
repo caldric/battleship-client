@@ -1,5 +1,5 @@
 // Import
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Square from './Square';
 
 const YourBoard = ({ apiURL, gameID, currShip, userBoard, setGame }) => {
@@ -13,15 +13,6 @@ const YourBoard = ({ apiURL, gameID, currShip, userBoard, setGame }) => {
     setGame(arrOfBlankStrings);
   }, []);
 
-  const convertCoordsToIndices = (coordinates) => {
-    // Convert column letter to number: A=0, B=1, ..., J=9
-    const columnIndex = coordinates[0].charCodeAt() - 65;
-    // Chars after the first char: 1=>0, 2=>1, ..., 10=>9
-    const rowIndex = parseInt(coordinates.slice(1)) - 1;
-
-    return [rowIndex, columnIndex];
-  };
-
   // Event handlers
   const clickHandler = async (event) => {
     // Coordinates of clicked square
@@ -29,32 +20,45 @@ const YourBoard = ({ apiURL, gameID, currShip, userBoard, setGame }) => {
     const columnCoordinate = coordinates[0];
     const rowCoordinate = coordinates.split('-')[0].slice(1);
 
+    // Add to object containing coordinates of ship location that
+    let placedShip = {};
+    // If rotated is true then ship is horizontal. Set horiz and vert values as opposite numbers for use in incrementation.
+    const isHoriz = currShip.rotate ? 1 : 0;
+    const isVert = currShip.rotate ? 0 : 1;
+    for (let i = 0; i < currShip.length; i++) {
+      // convert column letter to number in order to increment it and then convert it back to a letter for new column
+      const colLetter = String.fromCharCode(
+        columnCoordinate.charCodeAt(0) + isHoriz
+      );
+      // Format key in way that is readable for backend Mongo database
+      const boardKeyName = `userBoard.${colLetter}.${
+        parseInt(rowCoordinate, 10) + isVert
+      }`;
+      console.log(
+        `yourboard -> boardKeyName`,
+        boardKeyName,
+        colLetter,
+        parseInt(rowCoordinate, 10) + isVert
+      );
+      // Set object value as first 2 characters of ship name to show up on board
+      placedShip[boardKeyName] = currShip.name.substr(0, 2);
+    }
+
+    console.log(`yourboard -> placedShip`, placedShip);
+
     // Make put request
     const url = `${apiURL}/games/${gameID}`;
     const config = {
       method: 'PUT',
-      body: `{"userBoard.${columnCoordinate}.${rowCoordinate}":"${currShip.name}"}`,
+      body: JSON.stringify(placedShip),
       headers: { 'Content-Type': 'application/json' },
     };
     const response = await fetch(url, config);
     const data = await response.json();
 
-    // Change board state
-    const newBoard = [...userBoard];
-    if (!currShip.rotate) {
-      for (let i = 0; i < currShip.length; i++) {
-        newBoard[rowCoordinate + i][columnCoordinate] = 'X';
-      }
-    } else {
-      for (let i = 0; i < currShip.length; i++) {
-        newBoard[rowCoordinate][columnCoordinate + i] = 'X';
-      }
-    }
-    setGame(newBoard);
-
     // Change states
     setGame(data);
-    // <Ship length={currShip.length} name={currShip.name} />;
+    console.log(`yourboard -> data`, data);
   };
 
   // Generate 10x10 board with labels
