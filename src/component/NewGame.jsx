@@ -57,7 +57,7 @@ const NewGame = ({ apiURL }) => {
 
           //Format object key name to be readable by Mongo database
           colLetter = String.fromCharCode(65 + shipsObj[ship].coord[i][1]);
-          boardKeyName = `board2.${colLetter}.${
+          boardKeyName = `enemyBoardState.${colLetter}.${
             shipsObj[ship].coord[i][0] + 1
           }`;
           //Add to return object formatted for backend database. If there are overlapping locations then append them.
@@ -75,7 +75,7 @@ const NewGame = ({ apiURL }) => {
 
           //Format object key name to be readable by Mongo database
           colLetter = String.fromCharCode(65 + shipsObj[ship].coord[i][1]);
-          boardKeyName = `board2.${colLetter}.${
+          boardKeyName = `enemyBoardState.${colLetter}.${
             shipsObj[ship].coord[i][0] + 1
           }`;
           //Add to return object formatted for backend database. If there are overlapping locations then append them.
