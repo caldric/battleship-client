@@ -76,7 +76,7 @@ const YourBoard = ({ currShip, userBoard, setGame }) => {
             squares.push(
               <Square
                 key={`yourSquare${row}x${col}`}
-                // content={userBoard[row - 1][col - 1]}
+                content={cellValue}
                 divId={`${currentColumn}${row}`}
                 clickHandler={clickHandler}
                 className={`clickable col-${currentColumn} row-${row}`}
