@@ -1,13 +1,17 @@
 // Import
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Square from './Square';
 
-const YourBoard = ({ currShip }) => {
+const YourBoard = ({ currShip, userBoard, setGame }) => {
   // State Hooks
   // Initialize board to a 10x10 array of blank strings ('')
   const arrOfBlankStrings = JSON.parse(
     JSON.stringify(Array(10).fill(Array(10).fill('')))
   );
-  const [board, setBoard] = useState(arrOfBlankStrings);
+  // On mount function
+  useEffect(() => {
+    setGame(arrOfBlankStrings);
+  }, []);
 
   const convertCoordsToIndices = (coordinates) => {
     // Convert column letter to number: A=0, B=1, ..., J=9
@@ -25,7 +29,7 @@ const YourBoard = ({ currShip }) => {
     const [rowIndex, columnIndex] = convertCoordsToIndices(coordinates);
 
     // Change board state
-    const newBoard = [...board];
+    const newBoard = [...userBoard];
     if (!currShip.rotate) {
       for (let i = 0; i < currShip.length; i++) {
         newBoard[rowIndex + i][columnIndex] = 'X';
@@ -35,7 +39,7 @@ const YourBoard = ({ currShip }) => {
         newBoard[rowIndex][columnIndex + i] = 'X';
       }
     }
-    setBoard(newBoard);
+    setGame(newBoard);
 
     // <Ship length={currShip.length} name={currShip.name} />;
   };
@@ -47,37 +51,36 @@ const YourBoard = ({ currShip }) => {
     for (let row = 0; row < numSquares; ++row) {
       for (let col = 0; col < numSquares; ++col) {
         const currentColumn = String.fromCharCode(64 + col);
+
         if (row === 0) {
           if (col === 0) {
-            squares.push(
-              <div key={`yourSquare${row}x${col}`} className="square">
-                {' '}
-              </div>
-            );
+            squares.push(<Square key={`yourSquare${row}x${col}`} />);
           } else {
             squares.push(
-              <div key={`yourSquare${row}x${col}`} className="square">
-                {String.fromCharCode(64 + col)}
-              </div>
+              <Square key={`yourSquare${row}x${col}`} content={currentColumn} />
             );
           }
         } else {
+          // Get cell content
+          const columnObject = userBoard ? userBoard[currentColumn] : undefined;
+          const cellObject = columnObject
+            ? columnObject[String(row)]
+            : undefined;
+          const cellValue = cellObject;
+
           if (col === 0) {
             squares.push(
-              <div key={`yourSquare${row}x${col}`} className="square">
-                {row}
-              </div>
+              <Square key={`yourSquare${row}x${col}`} content={String(row)} />
             );
           } else {
             squares.push(
-              <div
+              <Square
                 key={`yourSquare${row}x${col}`}
-                className={`square clickable col-${currentColumn} row-${row}`}
-                id={`${currentColumn}${row}`}
-                onClick={clickHandler}
-              >
-                {board[row - 1][col - 1]}
-              </div>
+                // content={userBoard[row - 1][col - 1]}
+                divId={`${currentColumn}${row}`}
+                clickHandler={clickHandler}
+                className={`clickable col-${currentColumn} row-${row}`}
+              />
             );
           }
         }

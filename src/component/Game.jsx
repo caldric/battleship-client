@@ -79,7 +79,7 @@ const Game = ({ apiURL }) => {
     setGame(data);
     console.log(
       `{"userBoard.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
-      game.userBoard
+      data
     );
     // console.log(`enemyRandomAttack -> enemyState`, game.enemyBoardState);
   };
@@ -113,7 +113,11 @@ const Game = ({ apiURL }) => {
         </div>
         <div className="boardContainer d-inline-block mx-3 my-2">
           <p className="my-0 text-center">YOUR SHIPS</p>
-          <YourBoard currShip={currShip} />
+          <YourBoard
+            currShip={currShip}
+            userBoard={game.userBoard}
+            setGame={setGame}
+          />
         </div>
       </div>
       <AllShips setCurrShip={setCurrShip} />
