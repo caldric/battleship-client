@@ -51,6 +51,32 @@ const Game = ({ apiURL }) => {
     setRedirect(true);
   };
 
+  // Randomly attack user
+  const enemyRandomAttack = async () => {
+    let columnCoordinate = Math.floor(Math.random() * 10 + 1);
+    columnCoordinate = String.fromCharCode(64 + columnCoordinate);
+    let rowCoordinate = Math.floor(Math.random() * 10 + 1);
+
+    // Get the result of the user's coordinates
+    const userCheck = game.board1[columnCoordinate][rowCoordinate];
+
+    // Make put request
+    const url = `${apiURL}/games/${gameID}`;
+    const playerMark = userCheck ? 'H' : 'M';
+    const config = {
+      method: 'PUT',
+      body: `{"board1.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
+      headers: { 'Content-Type': 'application/json' },
+    };
+    const response = await fetch(url, config);
+    const data = await response.json();
+
+    // Change states
+    setGame(data);
+    console.log(`enemyRandomAttack -> state`, game.board1);
+    console.log(`enemyRandomAttack -> enemyState`, game.board2);
+  };
+
   // Render
   if (redirect) return <Redirect to="/" />;
   return (
@@ -75,6 +101,7 @@ const Game = ({ apiURL }) => {
             board={'board1'}
             gameID={game._id}
             setGame={setGame}
+            enemyRandomAttack={enemyRandomAttack}
           />
         </div>
         <div className="boardContainer d-inline-block mx-3 my-2">
