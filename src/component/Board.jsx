@@ -27,11 +27,13 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
 
     // Change states
     setGame(data);
+    enemyRandomAttack();
   };
 
   const enemyRandomAttack = async () => {
-    let rowCoordinate = Math.floor(Math.random() * 10);
-    let columnCoordinate = Math.floor(Math.random() * 10);
+    let columnCoordinate = Math.floor(Math.random() * 10 + 1);
+    columnCoordinate = String.fromCharCode(64 + columnCoordinate);
+    let rowCoordinate = Math.floor(Math.random() * 10 + 1);
 
     // Get the result of the user's coordinates
     const userCheck = state[columnCoordinate][rowCoordinate];
