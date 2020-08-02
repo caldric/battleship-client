@@ -78,7 +78,6 @@ In our kanban board, we had the "TO DO", "IN PROGRESS", "CHANGES REQUESTED", "CO
 - Games can be accessed publicly if you have the URL
 - You can only play against the computer, not friends (if you have ones to play with)
 - If you accidentally leave the game page you can't return to it unless you have the URL
-- Username has to be unique so you can't create an account if your desired name already exists
 - If sign up/login doesn't work there is no error message
 
 ##### Authors/Developers:
