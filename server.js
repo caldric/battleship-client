@@ -1,6 +1,5 @@
 // Dependencies
 // Packages
-// const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -40,20 +39,7 @@ mongoose.connection.once('open', () => {
   console.log('Connected to Mongoose');
 });
 
-// // CORS config
-// const whitelist = [local.clientURL, deployment.url];
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     if (whitelist.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-// };
-
 // Middleware
-// app.use(cors(corsOptions));
 app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
