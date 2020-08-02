@@ -27,7 +27,7 @@
 
 ## Wireframe
 
-![Wireframe](./public/wireframe.png)
+![Wireframe](./images/wireframe.png)
 
 ## User Stories
 
@@ -63,7 +63,7 @@ In our kanban board, we had the "TO DO", "IN PROGRESS", "CHANGES REQUESTED", "CO
 
 ### Cumulative Flow Chart
 
-![Wireframe](./public/cumulative_flow.png)
+![Wireframe](./images/cumulative_flow.png)
 
 ## Known Issues
 
