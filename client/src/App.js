@@ -21,10 +21,7 @@ const API = {
   deployment: 'https://gentle-temple-22561.herokuapp.com',
   index: 'battleship',
 };
-const baseURL =
-  process.env && process.env.NODE_ENV === 'development'
-    ? API.local
-    : API.deployment;
+const baseURL = '';
 
 // Component
 const App = () => {
