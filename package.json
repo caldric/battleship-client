@@ -1,6 +1,10 @@
 {
   "name": "battleship",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x",
+    "yarn": "1.x"
+  },
   "main": "server.js",
   "repository": "https://github.com/caldric/battleship-api.git",
   "author": "caldric <cvaldric@gmail.com>",
