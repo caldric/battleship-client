@@ -6,7 +6,7 @@ const session = require('express-session');
 const path = require('path');
 
 // Controllers
-const myController = require('./controllers/myController.js');
+const indexController = require('./controllers/index.js');
 const signupController = require('./controllers/signup.js');
 const loginController = require('./controllers/login.js');
 
@@ -53,7 +53,7 @@ app.use(
 );
 
 // Controllers
-app.use(`/${index}`, myController);
+app.use(`/${index}`, indexController);
 app.use('/signup', signupController);
 app.use('/login', loginController);
 app.get('/*', (req, res) => {
