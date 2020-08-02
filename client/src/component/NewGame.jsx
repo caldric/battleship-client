@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 // Component
-const NewGame = ({ apiURL }) => {
+const NewGame = ({ index }) => {
   // State Hooks
   const [gameID, setGameID] = useState('');
   const [redirect, setRedirect] = useState(false);
@@ -97,7 +97,7 @@ const NewGame = ({ apiURL }) => {
   // Create new game function
   const createGame = async () => {
     // Make POST request to API
-    const url = `${apiURL}/create/game`;
+    const url = `${index}/create/game`;
 
     // Generate silly computer placement
     let enemyShips = randomEnemy();

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 // Component
-const Signup = ({ apiBaseURL, getSession }) => {
+const Signup = ({ getSession }) => {
   // State Hooks
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -15,17 +15,15 @@ const Signup = ({ apiBaseURL, getSession }) => {
     event.preventDefault();
 
     // Make signup request to server
-    const signupURL = `${apiBaseURL}/signup`;
     const signupConfig = {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     };
-    const signup = await fetch(signupURL, signupConfig);
+    const signup = await fetch('/signup', signupConfig);
     const user = await signup.json();
 
     // Automatically log in user
-    const loginURL = `${apiBaseURL}/login`;
     const loginConfig = {
       method: 'POST',
       body: JSON.stringify({
@@ -34,7 +32,7 @@ const Signup = ({ apiBaseURL, getSession }) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     };
-    const login = await fetch(loginURL, signupConfig);
+    const login = await fetch('/login', signupConfig);
 
     // Store user in session storage
     if (login.status === 200) {

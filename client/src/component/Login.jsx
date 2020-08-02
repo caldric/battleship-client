@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 // Component
-const Login = ({ apiBaseURL, getSession }) => {
+const Login = ({ getSession }) => {
   // State Hooks
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -15,13 +15,12 @@ const Login = ({ apiBaseURL, getSession }) => {
     event.preventDefault();
 
     // Make post request to server
-    const url = `${apiBaseURL}/login`;
     const config = {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     };
-    const response = await fetch(url, config);
+    const response = await fetch('/login', config);
 
     // Store user in session storage
     const user = await response.json();

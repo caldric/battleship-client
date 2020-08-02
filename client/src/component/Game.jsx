@@ -9,7 +9,7 @@ import AllShips from './AllShips';
 import Board from './Board';
 import YourBoard from './YourBoard';
 
-const Game = ({ apiURL }) => {
+const Game = ({ index }) => {
   // State Hook
   const [game, setGame] = useState({
     enemyBoardVisible: {},
@@ -34,7 +34,7 @@ const Game = ({ apiURL }) => {
   // Get game from database
   const getGame = async () => {
     // Make GET request to API
-    const url = `${apiURL}/games/${gameID}`;
+    const url = `${index}/games/${gameID}`;
     const response = await fetch(url);
     const data = await response.json();
 
@@ -48,7 +48,7 @@ const Game = ({ apiURL }) => {
     event.preventDefault();
 
     // Make post request to API
-    const url = `${apiURL}/games/${gameID}`;
+    const url = `${index}/games/${gameID}`;
     await fetch(url, { method: 'DELETE' });
 
     // Change redirect state to true in order to trigger redirect
@@ -65,7 +65,7 @@ const Game = ({ apiURL }) => {
     const userCheck = game.userBoard[columnCoordinate][rowCoordinate];
 
     // Make put request
-    const url = `${apiURL}/games/${gameID}`;
+    const url = `${index}/games/${gameID}`;
     const playerMark = userCheck ? 'H' : 'M';
     const config = {
       method: 'PUT',
@@ -104,7 +104,7 @@ const Game = ({ apiURL }) => {
           <Board
             state={game.enemyBoardVisible}
             enemyState={game.enemyBoardState}
-            apiURL={apiURL}
+            index={index}
             board={'enemyBoardVisible'}
             gameID={game._id}
             setGame={setGame}
@@ -114,7 +114,7 @@ const Game = ({ apiURL }) => {
         <div className="boardContainer d-inline-block mx-3 my-2">
           <p className="my-0 text-center">YOUR SHIPS</p>
           <YourBoard
-            apiURL={apiURL}
+            index={index}
             gameID={game._id}
             currShip={currShip}
             userBoard={game.userBoard}

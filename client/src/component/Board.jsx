@@ -6,7 +6,7 @@ import Square from './Square';
 const Board = ({
   state,
   enemyState,
-  apiURL,
+  index,
   board,
   gameID,
   setGame,
@@ -23,7 +23,7 @@ const Board = ({
     const enemyCheck = enemyState[columnCoordinate][rowCoordinate];
 
     // Make put request
-    const url = `${apiURL}/games/${gameID}`;
+    const url = `${index}/games/${gameID}`;
     const playerMark = enemyCheck ? 'H' : 'M';
     const config = {
       method: 'PUT',

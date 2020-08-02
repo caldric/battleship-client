@@ -15,18 +15,13 @@ import NewGame from './component/NewGame';
 import Profile from './component/Profile';
 import Signup from './component/Signup';
 
-// Configuration
-const API = {
-  local: 'http://localhost:8080',
-  deployment: 'https://gentle-temple-22561.herokuapp.com',
-  index: 'battleship',
-};
-const baseURL = '';
-
 // Component
 const App = () => {
   // State Hook
   const [sessionUser, setSessionUser] = useState('');
+
+  // API index route
+  const apiIndex = '/battleship';
 
   // Get session function
   const getSession = () => {
@@ -44,17 +39,17 @@ const App = () => {
           <Landing getSession={getSession} sessionUser={sessionUser} />
         </Route>
         <Route exact path="/signup">
-          <Signup apiBaseURL={baseURL} getSession={getSession} />
+          <Signup getSession={getSession} />
         </Route>
         <Route exact path="/login">
-          <Login apiBaseURL={baseURL} getSession={getSession} />
+          <Login getSession={getSession} />
         </Route>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/new/game">
-          <NewGame apiURL={`${baseURL}/${API.index}`} />
+          <NewGame index={apiIndex} />
         </Route>
         <Route path="/game/:gameID">
-          <Game apiURL={`${baseURL}/${API.index}`} />
+          <Game index={apiIndex} />
         </Route>
         <Route component={Error} />
       </Switch>
