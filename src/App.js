@@ -47,7 +47,7 @@ const App = () => {
           <Landing getSession={getSession} sessionUser={sessionUser} />
         </Route>
         <Route exact path="/signup">
-          <Signup apiBaseURL={baseURL} />
+          <Signup apiBaseURL={baseURL} getSession={getSession} />
         </Route>
         <Route exact path="/login">
           <Login apiBaseURL={baseURL} getSession={getSession} />
