@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import Square from './Square';
 
-const YourBoard = ({ apiURL, gameID, currShip, userBoard, setGame }) => {
+const YourBoard = ({ index, gameID, currShip, userBoard, setGame }) => {
   // State Hooks
   // Initialize board to a 10x10 array of blank strings ('')
   const arrOfBlankStrings = JSON.parse(
@@ -41,7 +41,7 @@ const YourBoard = ({ apiURL, gameID, currShip, userBoard, setGame }) => {
     }
 
     // Make put request
-    const url = `${apiURL}/games/${gameID}`;
+    const url = `${index}/games/${gameID}`;
     const config = {
       method: 'PUT',
       body: JSON.stringify(placedShip),
