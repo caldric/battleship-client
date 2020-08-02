@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Ship from './Ship';
 import { Card, Button, CardDeck } from 'react-bootstrap';
 
 const AllShips = (props) => {
-  const [shipOptions, setshipOptions] = useState([
+  const shipOptions = [
     { name: 'carrier', length: 5 },
     { name: 'battleship', length: 4 },
     { name: 'cruiser', length: 3 },
     { name: 'submarine', length: 3 },
     { name: 'destroyer', length: 2 },
-  ]);
+  ];
 
   const rotateSquare = (event) => {
     let parentElem = event.target.parentNode.childNodes[0];
@@ -55,25 +55,33 @@ const AllShips = (props) => {
   return (
     <div className="text-center my-2">
       <div id="allships" className="allships">
-        <CardDeck>
+        <CardDeck key={`cardDeck`}>
           {shipOptions.map((val, i) => {
             return (
-              <Card className="cardContainer m-2 border border-info">
-                <Card.Body>
-                  <Card.Title>{val.name}</Card.Title>
+              <Card
+                key={`card${i}-${val.name}`}
+                className="cardContainer m-2 border border-info"
+              >
+                <Card.Body key={`cardBody${i}-${val.name}`}>
+                  <Card.Title key={`cardTitle${i}-${val.name}`}>
+                    {val.name}
+                  </Card.Title>
                   <Ship
+                    key={`shipNum${i}-${val.name}`}
                     length={val.length}
                     name={val.name}
                     imgName={`/ship${val.length}.png`}
                   />
                 </Card.Body>
                 <Button
+                  key={`rotateBtn${i}-${val.name}`}
                   className="btn btn-sm btn-info m-2 align-bottom"
                   onClick={(e) => rotateSquare(e)}
                 >
                   Rotate
                 </Button>
                 <Button
+                  key={`placeBtn${i}-${val.name}`}
                   onClick={(e) => placeShip(e)}
                   className={`place-carrier btn btn-sm btn-info m-2`}
                 >

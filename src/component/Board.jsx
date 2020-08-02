@@ -3,7 +3,15 @@ import React from 'react';
 import Square from './Square';
 
 // Component
-const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
+const Board = ({
+  state,
+  enemyState,
+  apiURL,
+  board,
+  gameID,
+  setGame,
+  enemyRandomAttack,
+}) => {
   // Event handlers
   const clickHandler = async (event) => {
     // Coordinates of clicked square
@@ -27,6 +35,7 @@ const Board = ({ state, enemyState, apiURL, board, gameID, setGame }) => {
 
     // Change states
     setGame(data);
+    enemyRandomAttack();
   };
 
   // Generate 10x10 board with labels

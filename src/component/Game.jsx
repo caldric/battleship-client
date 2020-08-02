@@ -11,7 +11,11 @@ import YourBoard from './YourBoard';
 
 const Game = ({ apiURL }) => {
   // State Hook
-  const [game, setGame] = useState({ board1: {}, board2: {} });
+  const [game, setGame] = useState({
+    enemyBoardVisible: {},
+    enemyBoardState: {},
+    userBoard: {},
+  });
   const [currShip, setCurrShip] = useState({
     name: '',
     length: 0,
@@ -51,6 +55,35 @@ const Game = ({ apiURL }) => {
     setRedirect(true);
   };
 
+  // Randomly attack user
+  const enemyRandomAttack = async () => {
+    let columnCoordinate = Math.floor(Math.random() * 10 + 1);
+    columnCoordinate = String.fromCharCode(64 + columnCoordinate);
+    let rowCoordinate = Math.floor(Math.random() * 10 + 1);
+
+    // Get the result of the user's coordinates
+    const userCheck = game.userBoard[columnCoordinate][rowCoordinate];
+
+    // Make put request
+    const url = `${apiURL}/games/${gameID}`;
+    const playerMark = userCheck ? 'H' : 'M';
+    const config = {
+      method: 'PUT',
+      body: `{"userBoard.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
+      headers: { 'Content-Type': 'application/json' },
+    };
+    const response = await fetch(url, config);
+    const data = await response.json();
+
+    // Change states
+    setGame(data);
+    console.log(
+      `{"userBoard.${columnCoordinate}.${rowCoordinate}":"${playerMark}"}`,
+      data
+    );
+    // console.log(`enemyRandomAttack -> enemyState`, game.enemyBoardState);
+  };
+
   // Render
   if (redirect) return <Redirect to="/" />;
   return (
@@ -69,17 +102,24 @@ const Game = ({ apiURL }) => {
         <div className="boardContainer d-inline-block mx-3 my-2">
           <p className="my-0 text-center">ENEMY SHIPS</p>
           <Board
-            state={game.board1}
-            enemyState={game.board2}
+            state={game.enemyBoardVisible}
+            enemyState={game.enemyBoardState}
             apiURL={apiURL}
-            board={'board1'}
+            board={'enemyBoardVisible'}
             gameID={game._id}
             setGame={setGame}
+            enemyRandomAttack={enemyRandomAttack}
           />
         </div>
         <div className="boardContainer d-inline-block mx-3 my-2">
           <p className="my-0 text-center">YOUR SHIPS</p>
-          <YourBoard currShip={currShip} />
+          <YourBoard
+            apiURL={apiURL}
+            gameID={game._id}
+            currShip={currShip}
+            userBoard={game.userBoard}
+            setGame={setGame}
+          />
         </div>
       </div>
       <AllShips setCurrShip={setCurrShip} />
