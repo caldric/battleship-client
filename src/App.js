@@ -18,7 +18,7 @@ import Signup from './component/Signup';
 // Configuration
 const API = {
   local: 'http://localhost:8080',
-  deployment: 'https://calm-lake-66619.herokuapp.com/',
+  deployment: 'https://calm-lake-66619.herokuapp.com',
   index: 'battleship',
 };
 const baseURL =
